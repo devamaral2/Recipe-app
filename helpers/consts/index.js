@@ -1,0 +1,10 @@
+export const MAX_NUMBER_OF_RECOMMENDED_RECIPES = 5;
+export const MAX_NUMBER_OF_RESULTS = 11;
+export const MAX_NUMBER_OF_TAGS = 1;
+export const MIN_PASSWD_LENGTH = 6;
+export const emailRegex = /\S+@\S+\.\S+/;
+export const MAX_NUMBER_OF_CATEGORY = 5;
+export const FILTER_DRINKS = 'drinks';
+export const FILTER_FOODS = 'foods';
+export const INGREDIENTS_QUANTITY = Array.from({ length: 20 }, (_, i) => i + 1);
+export const ALL = 'all';
