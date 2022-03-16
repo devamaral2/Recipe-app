@@ -27,9 +27,9 @@ export default function Login() {
 
   return (
     <ContainerIndex>
-      {/* <Head>
+      <Head>
         <title>Recipes app</title>
-      </Head> */}
+      </Head>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">
@@ -64,7 +64,7 @@ export default function Login() {
       </form>
         <Image 
           className="background-image" 
-          src={require("../public/images/images/image6.jpg")} 
+          src={require("../public/image6.jpg")} 
           alt="img" 
           layout='fill'
           objectFit='cover'
