@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import ImageBackground from '../../public/images/images/image6.jpg';
 
 const view = {
   desktop: '@media(min-width: 700px)',
