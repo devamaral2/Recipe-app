@@ -1,5 +1,6 @@
 import React from 'react';
 import * as g from '../../helpers/consts'
+import { fetchData } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 
 function Foods({ meals }) {
@@ -29,12 +30,12 @@ function Foods({ meals }) {
 }
 
 
-export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/allapis')
-  const json = await res.json();
+export async function getStaticProps() {
+  const foodsAll = await fetchData('foods', 'name', '');
+
   return {
     props: {
-      meals: json.all,
+      meals: foodsAll.meals,
     }
   }
 }
