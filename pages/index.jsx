@@ -1,14 +1,15 @@
-import Head from 'next/head'
 import React, { useState, useEffect } from 'react';
 import { MIN_PASSWD_LENGTH, emailRegex } from '../helpers/consts';
 import ContainerIndex from '../styled/styledIndex/styledIndex';
-import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router'
+import Head from '../components/Head/Head';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPasswd] = useState('');
   const [disabled, setDisabled] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     if (emailRegex.test(email) && password.length > MIN_PASSWD_LENGTH) {
@@ -23,13 +24,15 @@ export default function Login() {
     localStorage.setItem('mealsToken', '1');
     localStorage.setItem('cocktailsToken', '1');
     localStorage.setItem('user', JSON.stringify({ email }));
+    router.push('/foods');
   };
 
   return (
     <ContainerIndex>
-      <Head>
-        <title>Recipes app</title>
-      </Head>
+      <Head 
+        title={ 'Login Page' }
+        icon={'pngwing.com.png'}
+      />
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">
@@ -60,7 +63,6 @@ export default function Login() {
         >
           Entrar
         </button>
-        {/* <Image src="../public/images/images/image6.jpg" alt="img" fill /> */}
       </form>
         <Image 
           className="background-image" 
