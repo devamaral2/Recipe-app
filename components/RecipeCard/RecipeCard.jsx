@@ -5,7 +5,7 @@ import Link from 'next/link';
 const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter }) => (
   <a
     className="link"
-    href={`http://localhost:3000/food/${id}`}
+    href={`https://recipe-app-next-js-kappa.vercel.app/food/${id}`}
     key={id}
   // to={ filter === g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
   >
