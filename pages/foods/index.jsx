@@ -35,7 +35,6 @@ export async function getServerSideProps() {
   return {
     props: {
       meals: json.all,
-      categories: json.categories,
     }
   }
 }
