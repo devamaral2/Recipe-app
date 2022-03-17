@@ -1,14 +1,15 @@
 import React from 'react';
 import * as g from '../../helpers/consts'
-import { fetchData } from '../../helpers/services/api';
+import { fetchData, fetchCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import Foodslayout from '../../styled/styledFoods/Foodslayout';
 
 
-function Foods({ meals }) {
+function Foods({ meals,categories }) {
 
   return (
     <Foodslayout>
+     {categories.map((category) => (<p key={category.strCategory}>{category.strCategory}</p>))}
 
       <main>
         {
@@ -35,13 +36,13 @@ function Foods({ meals }) {
 }
 
 
-export async function getServerSideProps() {
-  // const foodsAll = await fetchData('foods', 'name', '');
-  const res = await fetch('https://recipe-app-next-js-kappa.vercel.app/api/allapis')
-  const json = res.json();
+export async function getStaticProps() {
+  const foodsAll = await fetchData('foods', 'name', '');
+  const categories = await fetchCategory('foods');
   return {
     props: {
-      meals: json.all,
+      meals: foodsAll.meals,
+      categories: categories.meals,
     }
   }
 }
