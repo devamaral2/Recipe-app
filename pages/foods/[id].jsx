@@ -5,13 +5,7 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import Foodslayout from '../../styled/styledFoods/Foodslayout';
 import CategoryList from '../../components/CategoryList/CategoryList';
 
-function Foods({ meals, categories, caminho }) {
-  
-  
-  
-  useEffect(() => {
-    console.log(caminho)
-  }, [])
+function Foods({ meals, categories, id }) {
   return (
     <Foodslayout>
       <section className="categories">
@@ -23,6 +17,7 @@ function Foods({ meals, categories, caminho }) {
                   key={index}
                   category={category.strCategory}
                   filter={g.FILTER_FOODS}
+                  id={id}
                 />
               );
             } if (index === g.MAX_NUMBER_OF_CATEGORY) {
@@ -31,6 +26,7 @@ function Foods({ meals, categories, caminho }) {
                   key={index}
                   category={g.ALL}
                   filter={g.FILTER_FOODS}
+                  id={id}
                 />
               );
             }
@@ -71,6 +67,7 @@ export async function getStaticProps({ params }) {
     props: {
       meals: foodsAll.meals,
       categories: categories.meals,
+      id: params.id
     }
   }
   }
@@ -79,6 +76,7 @@ export async function getStaticProps({ params }) {
     props: {
       meals: foodsAll.meals,
       categories: categories.meals,
+      id: params.id
     }
   }
 }
