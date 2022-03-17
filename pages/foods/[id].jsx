@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as g from '../../helpers/consts'
-import { fetchData, fetchCategory } from '../../helpers/services/api';
+import { fetchData, fetchCategory, fetchItensByCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import Foodslayout from '../../styled/styledFoods/Foodslayout';
 import CategoryList from '../../components/CategoryList/CategoryList';
 
-function Foods({ meals, categories }) {
+function Foods({ meals, categories, caminho }) {
+  
+  
+  
+  useEffect(() => {
+    console.log(caminho)
+  }, [])
   return (
     <Foodslayout>
       <section className="categories">
@@ -57,15 +63,45 @@ function Foods({ meals, categories }) {
 }
 
 
-export async function getStaticProps() {
-  const foodsAll = await fetchData('foods', 'name', '');
+export async function getStaticProps({ params }) {
   const categories = await fetchCategory('foods');
+  if (params.id === 'all') {
+  const foodsAll = await fetchData('foods', 'name', '');
   return {
     props: {
       meals: foodsAll.meals,
       categories: categories.meals,
     }
   }
+  }
+  const foodsAll = await fetchItensByCategory('foods', params.id);
+  return {
+    props: {
+      meals: foodsAll.meals,
+      categories: categories.meals,
+    }
+  }
+}
+export async function getStaticPaths() {
+  const categories = await fetchCategory('foods');
+    const sliced = categories.meals.slice(0,5)
+    const allPaths = sliced.map((category) => {
+        return {
+          params: {id: category.strCategory}
+        }
+    })
+
+  return {
+    paths: [ ...allPaths,
+      { 
+        params: {
+          id: 'all'
+        }
+      }
+    ],
+    fallback: true,
+  }
+
 }
 
 

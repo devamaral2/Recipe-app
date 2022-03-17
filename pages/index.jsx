@@ -24,7 +24,7 @@ export default function Login() {
     localStorage.setItem('mealsToken', '1');
     localStorage.setItem('cocktailsToken', '1');
     localStorage.setItem('user', JSON.stringify({ email }));
-    router.push('/foods');
+    router.push('/foods/all');
   };
 
   return (
