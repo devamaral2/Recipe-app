@@ -3,17 +3,38 @@ import * as g from '../../helpers/consts'
 import { fetchData, fetchCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import Foodslayout from '../../styled/styledFoods/Foodslayout';
+import CategoryList from '../../components/CategoryList/CategoryList';
 
-
-function Foods({ meals,categories }) {
-
+function Foods({ meals, categories }) {
   return (
     <Foodslayout>
-     {categories.map((category) => (<p key={category.strCategory}>{category.strCategory}</p>))}
-
+      <section className="categories">
+        {
+          categories.map((category, index) => {
+            if (index < g.MAX_NUMBER_OF_CATEGORY) {
+              return (
+                <CategoryList
+                  key={index}
+                  category={category.strCategory}
+                  filter={g.FILTER_FOODS}
+                />
+              );
+            } if (index === g.MAX_NUMBER_OF_CATEGORY) {
+              return (
+                <CategoryList
+                  key={index}
+                  category={g.ALL}
+                  filter={g.FILTER_FOODS}
+                />
+              );
+            }
+            return null;
+          })
+        }
+      </section>
       <main>
         {
-          meals.length > 0 && meals.map((recipe, index) => {
+          meals?.length > 0 && meals.map((recipe, index) => {
             if (index <= g.MAX_NUMBER_OF_RESULTS) {
               return (
                 <RecipeCard

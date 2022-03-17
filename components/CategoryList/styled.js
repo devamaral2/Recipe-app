@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
+  font-family: Arial, Helvetica, sans-serif;
+  border: none;
   padding: 10px;
-  font-size: 1.1rem;
   width: 150px;
   margin: 5px;
   border-radius: 10rem;

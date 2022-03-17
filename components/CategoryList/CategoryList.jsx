@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 import Button from './styled';
 import { fetchItensByCategory } from '../../helpers/services/api';
-import AppContext from '../../helpers/context/AppContext';
-import './categoryList.module.css';
+import AppContext from '../../context/AppContext';
+// import './categoryList.module.css';
 import * as g from '../../helpers/consts';
 
 function CategoryList({ category, filter }) {
@@ -46,26 +45,30 @@ function CategoryList({ category, filter }) {
     }
   };
   return (
-    <Button
-      type="button"
-      data-testid={ (category !== g.ALL)
-        ? `${category}-category-filter`
-        : 'All-category-filter' }
-      onClick={ searchByCategory }
-      className={ ((filter === g.FILTER_FOODS
-        && selectedCategoryColor === category)
-        || (filter === g.FILTER_DRINKS
-          && selectedDrinkCategoryColor === category))
-        ? 'orange' : 'white' }
-    >
-      { category }
-    </Button>
-  );
+    <>
+      <Button
+        type="button"
+        onClick={searchByCategory}
+        className='orange'
+        // {((filter === g.FILTER_FOODS
+        //   && selectedCategoryColor === category)
+        //   || (filter === g.FILTER_DRINKS
+        //     && selectedDrinkCategoryColor === category))
+        //   ? 'orange' : 'white'}
+      >
+        {category}
+      </Button>
+      <style jsx>{`
+        .orange {
+          background-color: rgb(211, 173, 129);
+        }
+        .white {
+          background-color: white;
+        }
+      `}
+      </style>
+    </>
+      );
 }
 
-CategoryList.propTypes = {
-  category: PropTypes.string,
-  filter: PropTypes.string,
-}.isRequired;
-
-export default CategoryList;
+      export default CategoryList;

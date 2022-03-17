@@ -37,12 +37,12 @@ const Provider = ({ children }) => {
     }
   }
 
-  async function getCategories() {
-    const mealsCategoryData = await fetchCategory(g.FILTER_FOODS);
-    const drinksCategoryData = await fetchCategory(g.FILTER_DRINKS);
-    setMealsCategory(mealsCategoryData.meals);
-    setDrinksCategory(drinksCategoryData.drinks);
-  }
+  // async function getCategories() {
+  //   const mealsCategoryData = await fetchCategory(g.FILTER_FOODS);
+  //   const drinksCategoryData = await fetchCategory(g.FILTER_DRINKS);
+  //   setMealsCategory(mealsCategoryData.meals);
+  //   setDrinksCategory(drinksCategoryData.drinks);
+  // }
 
   async function getIngredients() {
     const foodsIngredientsData = await fetchIngredients(g.FILTER_FOODS);
@@ -73,8 +73,8 @@ const Provider = ({ children }) => {
   }, [area]);
 
   useEffect(() => {
-    getMealsAndDrinks(g.ALL);
-    getCategories();
+    // getMealsAndDrinks(g.ALL);
+    // getCategories();
     getIngredients();
     getAllAreas();
   }, []);
