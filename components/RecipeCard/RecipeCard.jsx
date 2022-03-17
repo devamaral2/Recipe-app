@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import * as g from '../../helpers/consts';
+// import * as g from '../../helpers/consts';
 import './recipeCard.module.css';
+// import Link from 'next/link';
 
 const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter }) => (
-  <Link
+  <div
     className="link"
-    data-testid={ dataTestId }
-    to={ filter === g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
+    // to={ filter === g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
   >
     <div className="card"> </div>
     <img
@@ -22,18 +21,7 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
     >
       { name }
     </h3>
-  </Link>
+  </div>
 );
-RecipeCard.propTypes = {
-  image: PropTypes.string,
-  name: PropTypes.string,
-  index: PropTypes.number,
-  dataTestId: PropTypes.string,
-  titleTestId: PropTypes.string,
-}.isRequired;
-
-RecipeCard.defaultProps = {
-  titleTestId: 'card-name',
-};
 
 export default RecipeCard;

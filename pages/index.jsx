@@ -31,7 +31,7 @@ export default function Login() {
     <ContainerIndex>
       <Head 
         title={ 'Login Page' }
-        icon={'pngwing.com.png'}
+        icon={'../public/new-recipe-icon.png'}
       />
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
