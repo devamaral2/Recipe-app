@@ -40,7 +40,7 @@ function Foods({ meals, categories, caminho }) {
       </section>
       <main>
         {
-          meals?.length > 0 && meals.map((recipe, index) => {
+          meals.length > 0 && meals.map((recipe, index) => {
             if (index <= g.MAX_NUMBER_OF_RESULTS) {
               return (
                 <RecipeCard
@@ -99,7 +99,7 @@ export async function getStaticPaths() {
         }
       }
     ],
-    fallback: true,
+    fallback: false,
   }
 
 }
