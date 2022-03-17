@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AppContext from './AppContext';
 import {
   fetchData,
-  fetchCategory,
   fetchIngredients,
   fetchAreas,
   fetchMealByNationality,
@@ -23,8 +22,6 @@ const Provider = ({ children }) => {
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState(g.ALL);
   const [mealsByNationality, setMealsByNationality] = useState([]);
-  const [selectedCategoryColor, setSelectedCategoryColor] = useState(g.ALL);
-  const [selectedDrinkCategoryColor, setSelectedDrinkCategoryColor] = useState(g.ALL);
 
   async function getMealsAndDrinks(selection) {
     if (selection === g.ALL || g.FILTER_DRINKS) {
@@ -36,13 +33,6 @@ const Provider = ({ children }) => {
       setMeals(startingMeals.meals);
     }
   }
-
-  // async function getCategories() {
-  //   const mealsCategoryData = await fetchCategory(g.FILTER_FOODS);
-  //   const drinksCategoryData = await fetchCategory(g.FILTER_DRINKS);
-  //   setMealsCategory(mealsCategoryData.meals);
-  //   setDrinksCategory(drinksCategoryData.drinks);
-  // }
 
   async function getIngredients() {
     const foodsIngredientsData = await fetchIngredients(g.FILTER_FOODS);
@@ -73,8 +63,6 @@ const Provider = ({ children }) => {
   }, [area]);
 
   useEffect(() => {
-    // getMealsAndDrinks(g.ALL);
-    // getCategories();
     getIngredients();
     getAllAreas();
   }, []);
@@ -97,10 +85,6 @@ const Provider = ({ children }) => {
     getMealsAndDrinks,
     areas,
     setArea,
-    selectedCategoryColor,
-    setSelectedCategoryColor,
-    selectedDrinkCategoryColor,
-    setSelectedDrinkCategoryColor,
     mealsByNationality,
   };
 

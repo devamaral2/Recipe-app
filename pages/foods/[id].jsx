@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as g from '../../helpers/consts'
 import { fetchData, fetchCategory, fetchItensByCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
@@ -24,7 +24,7 @@ function Foods({ meals, categories, id }) {
               return (
                 <CategoryList
                   key={index}
-                  category={g.ALL}
+                  category={'All'}
                   filter={g.FILTER_FOODS}
                   id={id}
                 />
@@ -36,7 +36,7 @@ function Foods({ meals, categories, id }) {
       </section>
       <main>
         {
-          meals.length > 0 && meals.map((recipe, index) => {
+          meals.map((recipe, index) => {
             if (index <= g.MAX_NUMBER_OF_RESULTS) {
               return (
                 <RecipeCard
@@ -61,7 +61,7 @@ function Foods({ meals, categories, id }) {
 
 export async function getStaticProps({ params }) {
   const categories = await fetchCategory('foods');
-  if (params.id === 'all') {
+  if (params.id === 'All') {
   const foodsAll = await fetchData('foods', 'name', '');
   return {
     props: {
@@ -93,7 +93,7 @@ export async function getStaticPaths() {
     paths: [ ...allPaths,
       { 
         params: {
-          id: 'all'
+          id: 'All'
         }
       }
     ],

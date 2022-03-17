@@ -1,10 +1,12 @@
 import React from 'react';
 // import * as g from '../../helpers/consts';
-// import Link from 'next/link';
+import Link from 'next/link';
 
 const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter }) => (
-  <div
+  <a
     className="link"
+    href={`http://localhost:3000/food/${id}`}
+    key={id}
   // to={ filter === g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
   >
     <div className="card"> </div>
@@ -56,7 +58,7 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
         background-color: #f8f9fa;
       }
     `}</style>
-  </div>
+  </a>
 );
 
 export default RecipeCard;

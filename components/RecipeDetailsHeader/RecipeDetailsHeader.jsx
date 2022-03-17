@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import { getFavoriteRecipes } from '../../helpers/localStorage';
 import saveFavorite from '../../helpers/saveFavoriteRecipe';
-import shareIcon from '../../images/shareIcon.svg';
-import whiteHeartIcon from '../../images/whiteHeartIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
+import shareIcon from '../../public/shareIcon.svg';
+import whiteHeartIcon from '../../public/whiteHeartIcon.svg';
+import blackHeartIcon from '../../public/blackHeartIcon.svg';
 import Container from './Styled';
 
 const RecipeDetailsHeader = ({ type, url, recipe }) => {
