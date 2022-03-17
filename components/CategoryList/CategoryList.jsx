@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
-import Button from './styled';
 import { fetchItensByCategory } from '../../helpers/services/api';
 import AppContext from '../../context/AppContext';
-// import './categoryList.module.css';
 import * as g from '../../helpers/consts';
 import { useRouter } from 'next/router';
 
