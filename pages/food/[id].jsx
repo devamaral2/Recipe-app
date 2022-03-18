@@ -6,8 +6,7 @@ import RecipeDetailsHeader from
 '../../components/RecipeDetailsHeader/RecipeDetailsHeader';
 import RecipeIngredients from '../../components/RecipeIngredients/RecipeIngredients';
 import RecommendedRecipes from '../../components/RecommendedRecipes/RecommendedRecipes';
-// import Container from './styled';
-// import PropTypes from 'prop-types';
+import FoodLayout from '../../styled/styledFood/FoodLayout';
 
 function Food({ meal }) {
   const [buttonText, setButtonText] = useState();
@@ -36,7 +35,7 @@ function Food({ meal }) {
 
   if (Object.values(meal).length > 0) {
     return (
-      <container>
+      <FoodLayout>
         {
           redirect && <Redirect to={ `/food/${id}/in-progress` } />
         }
@@ -71,7 +70,7 @@ function Food({ meal }) {
         >
           { buttonText }
         </button>
-      </container>
+      </FoodLayout>
     );
   }
   return <h1>Carregando...</h1>;

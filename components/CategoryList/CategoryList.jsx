@@ -6,7 +6,7 @@ function CategoryList({ category, filter, id }) {
 
   function changePage () {
     if (category === id) {
-      return router.push('/foods/all')
+      return router.push('/foods/All')
     }
     router.push(`/foods/${category}`)
   }

@@ -3,10 +3,8 @@ import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import { getFavoriteRecipes } from '../../helpers/localStorage';
 import saveFavorite from '../../helpers/saveFavoriteRecipe';
-import shareIcon from '../../public/shareIcon.svg';
-import whiteHeartIcon from '../../public/whiteHeartIcon.svg';
-import blackHeartIcon from '../../public/blackHeartIcon.svg';
 import Container from './Styled';
+import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 
 const RecipeDetailsHeader = ({ type, url, recipe }) => {
   const [linkCopied, setLinkCopied] = useState(false);
@@ -57,12 +55,14 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
           type="button"
           onClick={ copyToClipboard }
         >
-          <img src={ shareIcon } alt="Share icon" />
+          <AiOutlineShareAlt className='share-icon'/>
         </button>
 
         {
           linkCopied && (
-            <p>Link copied!</p>
+            <div className="link-copied">
+              <p>Link copied!</p>
+            </div>
           )
         }
 
@@ -70,11 +70,8 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
           type="button"
           onClick={ () => saveFavorite(type, favorite, setFavorite, recipe) }
         >
-          <img
-            data-testid="favorite-btn"
-            src={ !favorite ? whiteHeartIcon : blackHeartIcon }
-            alt="favorite icon"
-          />
+          { !favorite ? (<AiOutlineHeart className='heart'/>) 
+          : (<AiFillHeart className='selected-heart'/>)}
         </button>
       </div>
 
@@ -84,6 +81,26 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
       <h3 data-testid="recipe-category">
         { category }
       </h3>
+      <style jsx>{`
+        @keyframes fade-in {
+
+          from {
+            opacity: 1;
+            top: -100;
+          }
+        
+          to {
+            opacity: 1;
+            top: 0;
+          }
+        }
+        
+        .link-copied {
+          animation: fade-in 2s;
+          opacity: 0;
+        }
+        
+      `}</style>
     </Container>
   );
 };
