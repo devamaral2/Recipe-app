@@ -5,11 +5,17 @@ import RecipeCard from '../../components/RecipeCard/RecipeCard';
 import CategoryList from '../../components/CategoryList/CategoryList';
 import Footer from '../../components/Footer/Footer'
 import { useRouter } from 'next/router';
+import Header from '../../components/Header/Header'
 
 function Foods({ meals, categories, id }) {
-  // const router = useRouter();
+  const router = useRouter();
   return (
     <div className='main'>
+      <Header 
+        viewIcon="true" 
+        namePage="Foods" 
+        pathname={ router.pathname }
+      />
       <section className="categories">
         {
           categories.map((category, index) => {
@@ -56,7 +62,7 @@ function Foods({ meals, categories, id }) {
           })
         }
       </main>
-      <Footer />
+      <Footer pathname={ router.pathname }/>
 
     <style jsx>{`
     * {

@@ -4,11 +4,11 @@ import { GiMeal } from 'react-icons/gi';
 import { BiDrink } from 'react-icons/bi';
 import { MdOutlineExplore, MdExplore } from 'react-icons/md';
 
-function Footer() {
+function Footer({ pathname }) {
   return (
     <Container data-testid="footer">
       <a
-        className='links'
+        className={ pathname.includes('foods')  ? 'orange' : '' }
         href="/foods/All"
       >
         <GiMeal />

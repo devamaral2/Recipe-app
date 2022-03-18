@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   align-items: center;
-  background-color: #f2f2f2;
+  background-color: rgba(248,248,248);
   bottom: 0;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
   rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -23,9 +23,11 @@ a {
   margin: 3rem;
   color: rgb(34, 34, 34);
 }
-.links {
-  
+
+.orange {
+  color: rgb(211, 173, 129);;
 }
+
 `;
 
 // const Container = styled.div`

@@ -41,7 +41,7 @@ function CategoryList({ category, filter, id }) {
           background-color: rgb(211, 173, 129);
         }
         .white {
-          background-color: white;
+          background-color: rgba(248,248,248);
         }
       `}
       </style>
