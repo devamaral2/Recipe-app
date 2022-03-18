@@ -42,7 +42,7 @@ const Container = styled.div`
   .heart {
     width: 2rem;
     height: 2rem; 
-    margin-right: 1rem;
+    /* margin-right: 1rem; */
   }
   .selected-heart {
     width: 2rem;

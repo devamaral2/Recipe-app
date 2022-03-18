@@ -17,7 +17,8 @@ function Food({ meal }) {
   useEffect(() => {
     const fetchRecommendedRecipes = async () => {
       const data = await fetchData('drinks', 'name', '');
-      setRecommendedRecipes(Object.values(data)[0]);
+      const res = Object.values(data)[0]
+      setRecommendedRecipes(res);
     };
 
     if (Object.keys(getInProgressRecipes().meals).includes(id)) {
