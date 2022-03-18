@@ -2,15 +2,20 @@ import styled from 'styled-components';
 
 const ContainerFoods = styled.div`
   align-items: center;
-  background-color: #ffffff;
+  background-color: #f2f2f2;
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
 
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   section {
     align-items: center;
-    background-color: whitesmoke;
+    background-color: #f2f2f2;
     width: 100vw;
     display: flex;
     justify-content: space-evenly;
@@ -22,7 +27,7 @@ const ContainerFoods = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: whitesmoke;
+    background-color: #f2f2f2;
     padding-bottom: 60px;
   }
 `;

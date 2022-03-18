@@ -1,39 +1,28 @@
 import React from 'react';
 import Container from './styled';
-import drinkIcon from '../../images/drinkIcon.svg';
-import mealIcon from '../../images/mealIcon.svg';
-import exploreIcon from '../../images/exploreIcon.svg';
-import Link from 'next/link';
+import { GiMeal } from 'react-icons/gi';
+import { BiDrink } from 'react-icons/bi';
+import { MdOutlineExplore, MdExplore } from 'react-icons/md';
 
 function Footer() {
   return (
     <Container data-testid="footer">
-      <Link
-        data-testid="drinks-bottom-btn"
-        href="/drinks"
-        src={ drinkIcon }
+      <a
+        className='links'
+        href="/foods/All"
       >
-        <object
-          type="image/svg+xml"
-          data={ drinkIcon }
-        >
-          Drinks
-        </object>
-      </Link>
-      <Link
-        data-testid="explore-bottom-btn"
-        src={ exploreIcon }
+        <GiMeal />
+      </a>
+      <a
         href="/explore"
       >
-        <object type="image/svg+xml" data={ exploreIcon }>Drinks</object>
-      </Link>
-      <Link
-        data-testid="food-bottom-btn"
-        src={ mealIcon }
-        href="/foods"
+        <MdOutlineExplore />
+      </a>
+      <a
+        href="/drinks/All"
       >
-        <object data={ mealIcon }>Foods</object>
-      </Link>
+        <BiDrink />
+      </a>
     </Container>
   );
 }

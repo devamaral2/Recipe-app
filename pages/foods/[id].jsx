@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import * as g from '../../helpers/consts'
 import { fetchData, fetchCategory, fetchItensByCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
-import Foodslayout from '../../styled/styledFoods/Foodslayout';
 import CategoryList from '../../components/CategoryList/CategoryList';
+import Footer from '../../components/Footer/Footer'
+import { useRouter } from 'next/router';
 
 function Foods({ meals, categories, id }) {
+  // const router = useRouter();
   return (
-    <Foodslayout>
+    <div className='main'>
       <section className="categories">
         {
           categories.map((category, index) => {
@@ -54,7 +56,42 @@ function Foods({ meals, categories, id }) {
           })
         }
       </main>
-    </Foodslayout>
+      <Footer />
+
+    <style jsx>{`
+    * {
+      margin: 0;
+      padding-bottom: 60px;
+
+    }
+    .main {
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      align-items: center;
+    }
+
+    section {
+      background-color: #f2f2f2;
+      width: 100vw;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f2f2f2;
+      width: 100%;
+    }
+    `}</style>
+
+    </div>
   )
 }
 

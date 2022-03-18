@@ -7,8 +7,6 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
     className="link"
     href={`https://recipe-app-next-js-kappa.vercel.app/food/${id}`}
     // href={`http://localhost:3000/food/${id}`}
-    key={id}
-  // to={ filter === g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
   >
     <div className="card"> </div>
     <img
@@ -24,40 +22,48 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
       {name}
     </h3>
     <style jsx>{`
-      .link {
+      * {
+        text-decoration:none; 
+        font-family: Arial, Helvetica, sans-serif;
+        color: rgb(34, 34, 34)
+      }
+       .link {
         display: flex;
         align-items: center;
         flex-direction: column;
         margin: 40px;
         position:relative;
         background-color: whitesmoke;
-        width: 80%;
+        width: 70%;
+        min-height: 16rem;
       }
       .card-img {
         border-radius: 50%;
-        background-color: inherit;
         z-index: 1;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         width: 150px;
       }
       .card-name {
         text-align: center;
+        text-decoration:none; 
         z-index: 1;
-        margin-top: 15px;
+        margin-top: 30px;
         color: black;
+        font-size: 1.6rem;
+
       }
 
       .card {
         float: left;
         width: 100%;
-        height: 180px;
+        min-height: 88%;
         z-index: 0;
         position:absolute;
         bottom: 0;
         border-radius: 1.5rem;
-        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-        background-color: #f8f9fa;
-      }
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        background-color: whitesmoke;
+      } 
     `}</style>
   </a>
 );
