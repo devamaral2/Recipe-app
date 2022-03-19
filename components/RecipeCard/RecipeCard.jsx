@@ -5,7 +5,8 @@ import Link from 'next/link';
 const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter }) => (
   <a
     className="link"
-    href={`https://recipe-app-next-js-kappa.vercel.app/food/${id}`}
+    href={`/food/${id}`}
+    // href={`https://recipe-app-next-js-kappa.vercel.app/food/${id}`}
     // href={`http://localhost:3000/food/${id}`}
   >
     <div className="card"> </div>

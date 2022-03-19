@@ -9,6 +9,7 @@ import RecommendedRecipes from '../../components/RecommendedRecipes/RecommendedR
 import FoodLayout from '../../styled/styledFood/FoodLayout';
 import Colors from '../../styled/colorsStyle/Colors'
 import AppContext from '../../context/AppContext';
+import PageSkeleton from '../../components/PageSkeleton/PageSkeleton';
 
 function Food({ meal }) {
   const { theme } = useContext(AppContext);
@@ -83,7 +84,7 @@ function Food({ meal }) {
 
     );
   }
-  return <h1>Carregando...</h1>;
+  return (<PageSkeleton />);
 }
 
 export async function getStaticProps({ params }) {
@@ -129,7 +130,7 @@ export async function getStaticPaths() {
 
   return {
     paths: results,
-    fallback: false,
+    fallback: true,
   }
 }
 
