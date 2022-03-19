@@ -10,6 +10,7 @@ import FoodLayout from '../../styled/styledFood/FoodLayout';
 import Colors from '../../styled/colorsStyle/Colors'
 import AppContext from '../../context/AppContext';
 import PageSkeleton from '../../components/PageSkeleton/PageSkeleton';
+import { useRouter } from 'next/router';
 
 function Food({ meal }) {
   const { theme } = useContext(AppContext);
@@ -17,6 +18,7 @@ function Food({ meal }) {
   const [recommendedRecipes, setRecommendedRecipes] = useState([]);
   const [redirect, setRedirect] = useState(false);
   const { id } = useParams();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchRecommendedRecipes = async () => {
@@ -37,6 +39,12 @@ function Food({ meal }) {
     setButtonText('Continue Recipe');
     setRedirect(true);
   };
+
+  if(router.isFallback) {
+    return (
+      <h1>Loading new data</h1>
+    )
+  }
 
   if (Object.values(meal).length > 0) {
     return (
@@ -130,7 +138,7 @@ export async function getStaticPaths() {
 
   return {
     paths: results,
-    fallback: false,
+    fallback: true,
   }
 }
 
