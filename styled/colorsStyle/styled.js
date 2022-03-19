@@ -5,9 +5,12 @@ const Container = styled.div`
     /* background-color: black; */
     background-color: #f2f2f2;
   }
-  input {
+  /* input {
     color: black;
     background-color: #ffff;
+  } */
+  .login-inputs {
+    color: white;
   }
 
   input::placeholder {

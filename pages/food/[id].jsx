@@ -42,7 +42,7 @@ function Food({ meal }) {
 
   if(router.isFallback) {
     return (
-      <h1>Loading new data</h1>
+      <PageSkeleton />
     )
   }
 

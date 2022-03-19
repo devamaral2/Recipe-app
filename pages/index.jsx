@@ -42,8 +42,8 @@ export default function Login() {
           <label htmlFor="email">
             <input
               id="email"
+              className='login-inputs'
               type="email"
-              data-testid="email-input"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               placeholder="Enter your e-mail"
@@ -53,8 +53,8 @@ export default function Login() {
           <label id="pass-label" htmlFor="password">
             <input
               id="password"
+              className='login-inputs'
               type="password"
-              data-testid="password-input"
               onChange={(e) => setPasswd(e.target.value)}
               value={password}
               placeholder="Type your password"
