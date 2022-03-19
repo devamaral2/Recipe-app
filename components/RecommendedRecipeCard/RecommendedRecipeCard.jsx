@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import * as g from '../../helpers/consts';
 
 const RecommendedRecipeCard = ({
@@ -35,7 +34,6 @@ const RecommendedRecipeCard = ({
        border-radius: 20px;
        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
        margin-right: 2rem;
-       background-color: whitesmoke;
       }
 
       .recommended-link {
@@ -56,7 +54,6 @@ const RecommendedRecipeCard = ({
       }
 
       .recommended-text {
-        color: black;
         position: absolute;
         bottom: 2rem;
       }

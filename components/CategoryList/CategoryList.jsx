@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
+import AppContext from '../../context/AppContext';
 
 function CategoryList({ category, filter, id }) {
+  const { setMeals } = useContext(AppContext);
   const router = useRouter();
 
   function changePage () {
+    setMeals([])
     if (category === id) {
       return router.push('/foods/All')
     }
@@ -14,16 +17,12 @@ function CategoryList({ category, filter, id }) {
   return (
     <>
       <button
-        type="button"
         onClick={changePage}
-        className= { category === id ? 'orange' : 'white'}
+        className= { category === id ? 'bg-orange' : 'default-categ-btn '}
       >
         {category}
       </button>
       <style jsx>{`
-        * {
-          color: rgb(34, 34, 34)
-        }
         button {
           border: none;
           font-size: 90%;
@@ -36,12 +35,6 @@ function CategoryList({ category, filter, id }) {
           rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
           font-family: Arial, Helvetica, sans-serif;
           padding: 0.5rem;
-        }
-        .orange {
-          background-color: rgb(211, 173, 129);
-        }
-        .white {
-          background-color: rgba(248,248,248);
         }
       `}
       </style>

@@ -4,8 +4,11 @@ import ContainerIndex from '../styled/styledIndex/styledIndex';
 import Image from 'next/image';
 import { useRouter } from 'next/router'
 import Head from '../components/Head/Head';
+import Colors from '../styled/colorsStyle/Colors';
+import AppContext from '../context/AppContext';
 
 export default function Login() {
+  const { theme } = AppContext;
   const [email, setEmail] = useState('');
   const [password, setPasswd] = useState('');
   const [disabled, setDisabled] = useState(true);
@@ -28,61 +31,52 @@ export default function Login() {
   };
 
   return (
-    <ContainerIndex>
-      <Head 
-        title={ 'Login Page' }
-        icon={'../public/new-recipe-icon.png'}
-      />
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">
-          <input
-            id="email"
-            type="email"
-            data-testid="email-input"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            placeholder="Enter your e-mail"
-            autoComplete="off"
-          />
-        </label>
-        <label id="pass-label" htmlFor="password">
-          <input
-            id="password"
-            type="password"
-            data-testid="password-input"
-            onChange={(e) => setPasswd(e.target.value)}
-            value={password}
-            placeholder="Type your password"
-          />
-        </label>
-        <button
-          type="submit"
-          data-testid="login-submit-btn"
-          disabled={disabled}
-        >
-          Entrar
-        </button>
-      </form>
-        <Image 
-          className="background-image" 
-          src={require("../public/image6.jpg")} 
-          alt="img" 
+    <Colors theme={theme} >
+      <ContainerIndex className='body'>
+        <Head
+          title={'Login Page'}
+          icon={'../public/new-recipe-icon.png'}
+        />
+        <h1>Login</h1>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">
+            <input
+              id="email"
+              type="email"
+              data-testid="email-input"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              placeholder="Enter your e-mail"
+              autoComplete="off"
+            />
+          </label>
+          <label id="pass-label" htmlFor="password">
+            <input
+              id="password"
+              type="password"
+              data-testid="password-input"
+              onChange={(e) => setPasswd(e.target.value)}
+              value={password}
+              placeholder="Type your password"
+            />
+          </label>
+          <button
+            type="submit"
+            className='login-button'
+            disabled={disabled}
+          >
+            Entrar
+          </button>
+        </form>
+        <Image
+          className="background-image"
+          src={require("../public/image6.jpg")}
+          alt="img"
           layout='fill'
           objectFit='cover'
           objectPosition='center'
         />
-        <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        
-        `}</style>
-    </ContainerIndex>
+      </ContainerIndex>
+    </Colors>
   );
 }

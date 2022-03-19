@@ -6,8 +6,6 @@ const view = {
 
 const ContainerIndex = styled.main`
   align-items: center;
-  /* background-image: */
-  background-color: black;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -43,20 +41,6 @@ const ContainerIndex = styled.main`
     z-index: 1;
   }
 
-  /* ${view.desktop} {
-    h1 {
-      position: static;
-    }
-
-    form {
-      width: 30rem;
-
-      input {
-        margin-bottom: 2rem;
-      }
-    }
-  } */
-
   label {
     display: flex;
     color: white;
@@ -70,7 +54,6 @@ const ContainerIndex = styled.main`
     background-color: transparent;
     border:none;
     border-bottom: 2px solid rgba(255, 255, 255, 0.329);
-    color: white;
     margin-bottom: 1.5rem;
     padding: 0.5rem 0.5rem 0.5rem 0;
     outline: none;
@@ -89,8 +72,7 @@ const ContainerIndex = styled.main`
   }
 
   button {
-    background-color: rgb(211, 173, 129);
-    /* background-color: #584DAE; */
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
     font-weight: bold;
     position: absolute;
@@ -98,7 +80,6 @@ const ContainerIndex = styled.main`
     border: 2px solid rgba(255, 255, 255, 0.329);
     opacity: 0.8;
     border-radius: 30px;
-    color: #ffffff;
     margin-top: 0.5rem;
     padding: 0.8rem;
     width: 10rem;

@@ -4,22 +4,22 @@ import { BiSearchAlt } from 'react-icons/bi';
 import AppContext from '../../context/AppContext';
 import Container from './Styled';
 
-export default function Header({ namePage, viewIcon }) {
+export default function Header({ namePage, viewIcon, pathname }) {
   const { setViewSearchBar } = useContext(AppContext);
 
   return (
-    <Container>
+    <Container className="body">
       <a href="/profile">
-        <CgProfile className='icons jus'/>
+        <CgProfile className={`icons ${pathname.includes('profile') ? 'orange' : 'default-links' }`} />
       </a>
-      <span data-testid="page-title">{namePage}</span>
+      <span>{namePage}</span>
       {
         viewIcon === 'true' ? (
           <button
             type="button"
             onClick={() => setViewSearchBar((Prev) => !Prev)}
           >
-            <BiSearchAlt className='icons'/>
+            <BiSearchAlt className='icons' />
           </button>
         ) : (<div />)
       }

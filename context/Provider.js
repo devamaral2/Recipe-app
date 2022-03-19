@@ -6,8 +6,8 @@ import {
   fetchIngredients,
   fetchAreas,
   fetchMealByNationality,
-} from '../services/api';
-import * as g from '../consts';
+} from '../helpers/services/api';
+import * as g from '../helpers/consts';
 
 const Provider = ({ children }) => {
   const [drinks, setDrinks] = useState([]);
@@ -22,6 +22,7 @@ const Provider = ({ children }) => {
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState(g.ALL);
   const [mealsByNationality, setMealsByNationality] = useState([]);
+  const [theme, setTheme] = useState('white')
 
   async function getMealsAndDrinks(selection) {
     if (selection === g.ALL || g.FILTER_DRINKS) {
@@ -86,6 +87,8 @@ const Provider = ({ children }) => {
     areas,
     setArea,
     mealsByNationality,
+    theme,
+    setTheme,
   };
 
   return (

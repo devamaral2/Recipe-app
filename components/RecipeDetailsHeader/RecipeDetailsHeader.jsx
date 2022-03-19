@@ -48,16 +48,6 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
         src={ image }
         data-testid="recipe-photo"
       />
-
-      <div className="options">
-        <button
-          data-testid="share-btn"
-          type="button"
-          onClick={ copyToClipboard }
-        >
-          <AiOutlineShareAlt className='share-icon'/>
-        </button>
-
         {
           linkCopied && (
             <div className="link-copied">
@@ -66,8 +56,16 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
           )
         }
 
+      <div className="options">
         <button
-          type="button"
+          
+          onClick={ copyToClipboard }
+        >
+          <AiOutlineShareAlt className='share-icon'/>
+        </button>
+
+
+        <button
           onClick={ () => saveFavorite(type, favorite, setFavorite, recipe) }
         >
           { !favorite ? (<AiOutlineHeart className='heart'/>) 
@@ -75,10 +73,10 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
         </button>
       </div>
 
-      <h2 data-testid="recipe-title">
+      <h2>
         { title }
       </h2>
-      <h3 data-testid="recipe-category">
+      <h3>
         { category }
       </h3>
       <style jsx>{`
@@ -98,8 +96,7 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
         .link-copied {
           animation: fade-in 2s;
           opacity: 0;
-        }
-        
+        }  
       `}</style>
     </Container>
   );

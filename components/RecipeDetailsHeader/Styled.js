@@ -18,7 +18,7 @@ const Container = styled.div`
 
     button {
       background-color: transparent;
-      border: none
+      border: none;
     }
   }
 
@@ -39,14 +39,13 @@ const Container = styled.div`
     width: 2rem;
     height: 2rem;
   }
-  .heart {
+  .heart, .selected-heart {
     width: 2rem;
     height: 2rem; 
-    /* margin-right: 1rem; */
+    margin-left: 0.5rem;
+    margin-right: 0.3rem; 
   }
-  .selected-heart {
-    width: 2rem;
-    height: 2rem;
+  .selected-heart { 
     color: rgb(211, 173, 129); 
   }
   .options {

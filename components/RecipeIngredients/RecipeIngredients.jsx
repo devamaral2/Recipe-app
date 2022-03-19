@@ -16,7 +16,7 @@ const RecipeIngredients = ({ object }) => {
               return (
                 <li
                   key={ index }
-                  data-testid={ `${index}-ingredient-name-and-measure` }
+                  className="ingredients"
                 >
                   { `${object[ingredient]} - ${object[measures[index]]}` }
                 </li>

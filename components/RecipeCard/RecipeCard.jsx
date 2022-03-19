@@ -25,7 +25,6 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
       * {
         text-decoration:none; 
         font-family: Arial, Helvetica, sans-serif;
-        color: rgb(34, 34, 34)
       }
        .link {
         display: flex;
@@ -33,7 +32,6 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
         flex-direction: column;
         margin: 40px;
         position:relative;
-        background-color: #f2f2f2;
         width: 70%;
         min-height: 16rem;
       }
@@ -48,7 +46,6 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
         text-decoration:none; 
         z-index: 1;
         margin-top: 30px;
-        color: rgb(60, 60, 60);
         font-size: 1.6rem;
       }
 
@@ -61,7 +58,6 @@ const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter })
         bottom: 0;
         border-radius: 1.5rem;
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-        background-color: rgba(248,248,248);
       } 
     `}</style>
   </a>

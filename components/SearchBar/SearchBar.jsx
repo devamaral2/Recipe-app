@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import AppContext from '../../context/AppContext';
 import { fetchData } from '../../helpers/services/api';
 import Container from './Styled';
@@ -103,8 +102,5 @@ const SearchBar = ({ currentPage }) => {
   );
 };
 
-SearchBar.propTypes = {
-  currentPage: PropTypes.string.isRequired,
-};
 
 export default SearchBar;
