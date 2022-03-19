@@ -1,25 +1,29 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
-import { fetchData, fetchItensByCategory } from '../../helpers/services/api';
-import { recipeInProgress, getInProgressRecipes } from '../../helpers/localStorage';
+import { fetchData, fetchItensByCategory } from '../../../helpers/services/api';
+import { recipeInProgress, getInProgressRecipes } from '../../../helpers/localStorage';
 import RecipeDetailsHeader from
-  '../../components/RecipeDetailsHeader/RecipeDetailsHeader';
-import RecipeIngredients from '../../components/RecipeIngredients/RecipeIngredients';
-import RecommendedRecipes from '../../components/RecommendedRecipes/RecommendedRecipes';
-import FoodLayout from '../../styled/styledFood/FoodLayout';
-import Colors from '../../styled/colorsStyle/Colors'
-import AppContext from '../../context/AppContext';
-import PageSkeleton from '../../components/PageSkeleton/PageSkeleton';
+  '../../../components/RecipeDetailsHeader/RecipeDetailsHeader';
+import RecipeIngredients from '../../../components/RecipeIngredients/RecipeIngredients';
+import RecommendedRecipes from '../../../components/RecommendedRecipes/RecommendedRecipes';
+import FoodLayout from '../../../styled/styledFood/FoodLayout';
+import Colors from '../../../styled/colorsStyle/Colors'
+import AppContext from '../../../context/AppContext';
+import PageSkeleton from '../../../components/PageSkeleton/PageSkeleton';
 import { useRouter } from 'next/router';
 
 function Food({ meal }) {
-  const { theme } = useContext(AppContext);
+  const { theme, setRecipe } = useContext(AppContext);
   const [buttonText, setButtonText] = useState();
   const [recommendedRecipes, setRecommendedRecipes] = useState([]);
   const [redirect, setRedirect] = useState(false);
-  const { id } = useParams();
   const router = useRouter();
-
+  const { id } = router.query;
+  
+  useEffect(() => {
+    setRecipe(meal);
+  },[])
+  
   useEffect(() => {
     const fetchRecommendedRecipes = async () => {
       const data = await fetchData('drinks', 'name', '');
@@ -37,7 +41,8 @@ function Food({ meal }) {
   const setProgress = () => {
     recipeInProgress('food', meal);
     setButtonText('Continue Recipe');
-    setRedirect(true);
+    // setRedirect(true);
+    router.push(`/food/${id}/in-progress`)
   };
 
   if(router.isFallback) {
@@ -49,7 +54,7 @@ function Food({ meal }) {
   if (Object.values(meal).length > 0) {
     return (
       <Colors theme={theme}>
-        <FoodLayout className='body'>
+        <FoodLayout>
           <main className='body'>
 
             {

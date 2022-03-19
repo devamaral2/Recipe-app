@@ -36,6 +36,9 @@ const Container = styled.div`
     color: rgb(40, 40, 40)
   }
 
+  .ingredients-checkbox {
+    
+  }
 
   .login-button {
     background-color: rgb(211, 173, 129);

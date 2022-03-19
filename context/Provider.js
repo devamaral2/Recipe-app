@@ -12,6 +12,7 @@ import * as g from '../helpers/consts';
 const Provider = ({ children }) => {
   const [drinks, setDrinks] = useState([]);
   const [meals, setMeals] = useState([]);
+  const [recipe, setRecipe] =useState([]);
   const [recipeFilter, setRecipeFilter] = useState(g.ALL);
   const [viewSearchBar, setViewSearchBar] = useState(false);
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
@@ -89,6 +90,8 @@ const Provider = ({ children }) => {
     mealsByNationality,
     theme,
     setTheme,
+    recipe,
+    setRecipe,
   };
 
   return (

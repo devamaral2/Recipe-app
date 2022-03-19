@@ -9,24 +9,12 @@ import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 const RecipeDetailsHeader = ({ type, url, recipe }) => {
   const [linkCopied, setLinkCopied] = useState(false);
   const [favorite, setFavorite] = useState(false);
-  let id;
-  let title;
-  let image;
-  let category;
-
-  if (type === 'food') {
-    const { idMeal, strMeal, strMealThumb, strCategory } = recipe;
-    id = idMeal;
-    title = strMeal;
-    image = strMealThumb;
-    category = strCategory;
-  } else {
-    const { idDrink, strDrink, strDrinkThumb, strAlcoholic } = recipe;
-    id = idDrink;
-    title = strDrink;
-    image = strDrinkThumb;
-    category = strAlcoholic;
-  }
+  const { idMeal, strMeal, strMealThumb, strCategory } = recipe;
+  const { idDrink, strDrink, strDrinkThumb, strAlcoholic } = recipe;
+  const id = type === 'food' ? idMeal : idDrink;
+  const title = type === 'food' ? strMeal : strDrink;
+  const image = type === 'food' ? strMealThumb : strDrinkThumb;
+  const category = type === 'food' ? strCategory : strAlcoholic;
 
   useEffect(() => {
     const favorites = getFavoriteRecipes();
@@ -58,13 +46,10 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
 
       <div className="options">
         <button
-          
           onClick={ copyToClipboard }
         >
           <AiOutlineShareAlt className='share-icon'/>
         </button>
-
-
         <button
           onClick={ () => saveFavorite(type, favorite, setFavorite, recipe) }
         >
@@ -72,12 +57,13 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
           : (<AiFillHeart className='selected-heart'/>)}
         </button>
       </div>
-
       <h2>
         { title }
+        {/* { recipe.strMeal } */}
       </h2>
       <h3>
         { category }
+        {/* { recipe.strCategory } */}
       </h3>
       <style jsx>{`
         @keyframes fade-in {
