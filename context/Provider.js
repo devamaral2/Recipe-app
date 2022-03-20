@@ -18,7 +18,6 @@ const Provider = ({ children }) => {
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const [mealsCategory, setMealsCategory] = useState([]);
   const [drinksCategory, setDrinksCategory] = useState([]);
-  // const [foodsIngredients, setFoodsIngredients] = useState([]);
   const [drinksIngredients, setDrinksIngredients] = useState([]);
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState(g.ALL);
@@ -34,13 +33,6 @@ const Provider = ({ children }) => {
       const startingMeals = await fetchData(g.FILTER_FOODS, 'name', '');
       setMeals(startingMeals.meals);
     }
-  }
-
-  async function getIngredients() {
-    const foodsIngredientsData = await fetchIngredients(g.FILTER_FOODS);
-    const drinksIngredientsData = await fetchIngredients(g.FILTER_DRINKS);
-    setFoodsIngredients(foodsIngredientsData.meals);
-    setDrinksIngredients(drinksIngredientsData.drinks);
   }
 
   async function getAllAreas() {
@@ -65,7 +57,6 @@ const Provider = ({ children }) => {
   }, [area]);
 
   useEffect(() => {
-    // getIngredients();
     getAllAreas();
   }, []);
 

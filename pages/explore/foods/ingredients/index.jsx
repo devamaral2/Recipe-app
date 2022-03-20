@@ -35,12 +35,12 @@ function ExploreFoodIngredients({ ingredients}) {
       </section>
         <Footer pathname="explore" />
       </div>
-      <style jsx> {`
+      <style jsx>{`
         section { 
           display: flex;
           flex-direction: column; 
+          align-items: center;
         }
-        
       `}</style>
     </Colors>
   );

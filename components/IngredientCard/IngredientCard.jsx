@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Container from './styled';
 import * as g from '../../helpers/consts';
@@ -6,20 +6,25 @@ import AppContext from '../../context/AppContext';
 import { fetchData } from '../../helpers/services/api';
 
 const IngredientCard = ({ name, filter, index }) => {
-  const { setMeals, setDrinks } = useContext(AppContext);
+  const { setMeals, setDrinks, meals } = useContext(AppContext);
   const url = filter === g.FILTER_FOODS
     ? (`https://www.themealdb.com/images/ingredients/${name}-Small.png`)
     : (`https://www.thecocktaildb.com/images/ingredients/${name}-Small.png`);
-  return (
+  useEffect(()=> { 
+    console.log(meals)
+  },[meals])
+  
+  
+    return (
+    <Container>
     <a
-      href={ filter === g.FILTER_FOODS ? '/foods/' : '/drinks/' }
+      href={ filter === g.FILTER_FOODS ? '/foods/All' : '/drinks/All' }
       onClick={ async () => {
         const data = await fetchData(filter, 'ingredient', name);
         if (filter === g.FILTER_FOODS) return setMeals(data.meals);
         setDrinks(data.drinks);
       } }
     >
-      <Container>
         <img
           src={ url }
           alt={ name }
@@ -27,8 +32,8 @@ const IngredientCard = ({ name, filter, index }) => {
         <p>
           { name }
         </p>
-      </Container>
     </a>
+      </Container>
   );
 };
 IngredientCard.propTypes = {

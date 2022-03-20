@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  img {
-    /* width: 40%; */
+  a {
+    width: 100%;
+    height: 100%;
   }
+  background-color: black;
 `;
 
 export default Container;
