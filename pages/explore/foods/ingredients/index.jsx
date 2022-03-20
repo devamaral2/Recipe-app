@@ -36,7 +36,7 @@ function ExploreFoodIngredients({ ingredients}) {
       </div>
       <style jsx>{`
         div {
-          padding: 60px;
+          padding-bottom: 60px;
         }
         section { 
           display: flex;
