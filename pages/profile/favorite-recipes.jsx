@@ -7,7 +7,7 @@ import FavoriteRecipeCard from '../../components/FavoriteRecipeCard/FavoriteReci
 import Colors from '../../styled/colorsStyle/Colors';
 
 function FavoriteRecipes() {
-  const { recipeFilter, favoriteRecipes: favorite } = useContext(AppContext);
+  const { recipeFilter, favoriteRecipes: favorite, theme } = useContext(AppContext);
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function FavoriteRecipes() {
   }, [recipeFilter, favorite]);
 
   return (
-    <Colors>
+    <Colors theme={ theme }>
       <div className="body">
         <Header
           pathname="profile"

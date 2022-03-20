@@ -7,7 +7,7 @@ import DoneRecipeCard from '../../components/DoneRecipeCard/DoneRecipeCard';
 import Colors from '../../styled/colorsStyle/Colors';
 
 function DoneRecipes() {
-  const { recipeFilter } = useContext(AppContext);
+  const { recipeFilter, theme } = useContext(AppContext);
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
@@ -22,32 +22,32 @@ function DoneRecipes() {
   }, [recipeFilter]);
 
   return (
-    <Colors>
-      <div className='body'>
-        <Header
-          pathname="profile"
-          namePage="Done Recipes"
-          viewIcon="false"
-        />
-        <RecipeFilters />
-        {
-          recipes.length >= 1 && (
-            recipes.map((recipe, index) => (
-              <DoneRecipeCard
-                key={index}
-                recipe={recipe}
-                index={index}
-              />
-            ))
-          )
-        }
-      </div>
+    <Colors theme={theme}>
+    <div className='body'>
+      <Header
+        pathname="profile"
+        namePage="Done Recipes"
+        viewIcon="false"
+      />
+      <RecipeFilters />
+      {
+        recipes.length >= 1 && (
+          recipes.map((recipe, index) => (
+            <DoneRecipeCard
+              key={index}
+              recipe={recipe}
+              index={index}
+            />
+          ))
+        )
+      }
       <style jsx>{`
         div {
           min-height: 100vh;
           width: 100vw;
         }
-      `}</style>
+        `}</style>
+    </div>
     </Colors>
   );
 }

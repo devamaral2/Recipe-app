@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { MIN_PASSWD_LENGTH, emailRegex } from '../helpers/consts';
 import ContainerIndex from '../styled/styledIndex/styledIndex';
 import Image from 'next/image';
@@ -8,7 +8,7 @@ import Colors from '../styled/colorsStyle/Colors';
 import AppContext from '../context/AppContext';
 
 export default function Login() {
-  const { theme } = AppContext;
+  const { theme } = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [password, setPasswd] = useState('');
   const [disabled, setDisabled] = useState(true);
@@ -31,7 +31,7 @@ export default function Login() {
   };
 
   return (
-    <Colors theme={theme} >
+    <Colors theme={theme}>
       <ContainerIndex className='body'>
         <Head
           title={'Login Page'}

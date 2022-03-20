@@ -8,10 +8,10 @@ import Colors from '../../../../styled/colorsStyle/Colors';
 import { fetchAreas, fetchData } from '../../../../helpers/services/api';
 
 function ExploreFoodsNationalities({ areas, initialResults }) {
-  const { setArea, mealsByNationality } = useContext(AppContext);
+  const { setArea, mealsByNationality, theme } = useContext(AppContext);
   const results = mealsByNationality.length === 0 ? initialResults : mealsByNationality;
   return (
-    <Colors>
+    <Colors theme={theme}>
       <div className='body'>
         <Header
           pathname="explore"

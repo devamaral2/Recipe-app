@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Header from '../../../../components/Header/Header';
 import Footer from '../../../../components/Footer/Footer';
 import IngredientCard from '../../../../components/IngredientCard/IngredientCard';
 import * as g from '../../../../helpers/consts';
 import Colors from '../../../../styled/colorsStyle/Colors';
 import { fetchIngredients } from '../../../../helpers/services/api';
+import AppContext from '../../../../context/AppContext';
 
 function ExploreFoodIngredients({ ingredients}) {
+  const { theme } = useContext(AppContext);
   return (
-    <Colors>
+    <Colors theme={ theme }>
       <div className="body">
         <Header
           namePage="Explore Ingredients"

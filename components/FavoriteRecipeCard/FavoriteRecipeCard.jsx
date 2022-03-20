@@ -5,6 +5,7 @@ import copy from 'clipboard-copy';
 import AppContext from '../../context/AppContext';
 import { removeFavoriteRecipe } from '../../helpers/localStorage';
 import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
+import Container from './styled';
 
 const FavoriteRecipeCard = ({ index, recipe }) => {
   const { favoriteRecipes, setFavoriteRecipes } = useContext(AppContext);
@@ -14,7 +15,7 @@ const FavoriteRecipeCard = ({ index, recipe }) => {
   const category = recipe.type === 'food' ? recipe.category : recipe.alcoholicOrNot;
 
   const copyToClipboard = () => {
-    copy(`http://localhost:3000/${type}/${id}`);
+    copy(`https://recipe-app-next-js-kappa.vercel.app/${type}/${id}`);
     setLinkCopied(true);
   };
 
@@ -24,86 +25,69 @@ const FavoriteRecipeCard = ({ index, recipe }) => {
   };
 
   return (
-    <div className='body'>
-
-      <Link key={index} href={`/${recipe.type}/${recipe.id}`}>
-        <a>
-          <img
-            alt={name}
-            src={image}
-            style={{ width: '50px' }}
-          />
-        </a>
-      </Link>
-      <div> </div>
-          <p>
-            {`${nationality} - ${category}`}
-          </p>
+    <Container>
+      <div className='body'>
+        <Link key={index} href={`/${recipe.type}/${recipe.id}`}>
+          <a>
+            <img
+              alt={name}
+              src={image}
+            />
+          </a>
+        </Link>
+        <div className="favorite-content">
 
           <h2>
             {name}
           </h2>
+          <p>
+            {`${nationality} - ${category}`}
+          </p>
 
-      <button
-        type="button"
-        onClick={copyToClipboard}
-      >
-        <AiOutlineShareAlt />
-      </button>
 
-      {
-        linkCopied && (
-          <p>Link copied!</p>
-        )
-      }
+          <button
+            type="button"
+            onClick={copyToClipboard}
+          >
+            <AiOutlineShareAlt className="icons share-icon" />
+          </button>
 
-      <button
-        type="button"
-        onClick={removeFavorite}
-        >
-        <AiFillHeart />
-      </button>
-      <style jsx>{`
-      * {
-        text-decoration:none; 
-        font-family: Arial, Helvetica, sans-serif;
-      }
-       .link {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        margin: 40px;
-        position:relative;
-        width: 70%;
-        min-height: 16rem;
-      }
-      .card-img {
-        border-radius: 50%;
-        z-index: 1;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        width: 15px;
-      }
-      .card-name {
-        text-align: center;
-        text-decoration:none; 
-        z-index: 1;
-        margin-top: 30px;
-        font-size: 1.6rem;
-      }
+          {
+          linkCopied && (
+            <div className="link-copied">
+              <p>Link copied!</p>
+            </div>
+          )
+        }
 
-      .card {
-        float: left;
-        width: 100%;
-        min-height: 88%;
-        z-index: 0;
-        position:absolute;
-        bottom: 0;
-        border-radius: 1.5rem;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-      } 
-    `}</style>
-
+          <button
+            type="button"
+            onClick={removeFavorite}
+          >
+            <AiFillHeart className="icons orange" />
+          </button>
+        </div>
       </div>
+      <style jsx>{`
+        @keyframes fade-in {
+
+          from {
+            opacity: 1;
+            top: -100;
+          }
+        
+          to {
+            opacity: 1;
+            top: 0;
+          }
+        }
+        
+        .link-copied {
+          animation: fade-in 2s;
+          opacity: 0;
+        }  
+      `}</style>
+    </Container>
   );
 };
 

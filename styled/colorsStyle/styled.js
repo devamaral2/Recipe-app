@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+const DarkTheme = "rgba(248,248,248)";
+const WhiteTheme = "rgb(40, 40, 40)";
+const backgroundWhiteTheme = "#f2f2f2";
+const backgroundBlackTheme = "black";
+
+
 const Container = styled.div`
   .body, .link, main {
     /* background-color: black; */
@@ -16,7 +22,7 @@ const Container = styled.div`
   input::placeholder {
     color: silver;
   }
-  span, label, p, h2, h4, .recommended-text, .default-links, .card-name, .ingredients {
+  span, label, p, h2, h4, .recommended-text, .default-links, .card-name, .ingredients, .share-icon, .heart {
     color: rgb(40, 40, 40);
   }
   .large-buttons {
@@ -25,7 +31,7 @@ const Container = styled.div`
   .orange {
     color: rgb(211, 173, 129);
   }
-  .footer, .card, .recommended-card, .ingredient-card, .done-recipes-btn {
+  .footer, .card, .recommended-card, .ingredient-card, .done-recipes-btn, .favorite-content {
     background-color: rgba(248,248,248);
   }
   .bg-orange {
@@ -50,6 +56,7 @@ const Container = styled.div`
   .explore-drinks-btn {
     background-color: #893302;
   }
+  
 
   /* span {
     color: ${(props) => props.theme === 'white' ? 'orange' : 'black'}

@@ -2,20 +2,20 @@
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Colors from '../../styled/colorsStyle/Colors';
-import ExploreLayout from '../../styled/exploreStyle/ExploreLayout';
+import { useContext } from 'react';
+import AppContext from '../../context/AppContext';
 
 function Explore() {
-
+  const { theme } = useContext(AppContext);
   return (
-    <Colors>
-        <div className='body'>
-
-          <Header
-            pathname={'explore'}
-            namePage="Explore"
-            viewIcon="false"
-          />
-          <section>
+    <Colors theme={theme}>
+      <div className='body'>
+        <Header
+          pathname={'explore'}
+          namePage="Explore"
+          viewIcon="false"
+        />
+        <section>
 
           <button
             type="button"
@@ -29,9 +29,9 @@ function Explore() {
           >
             <a className="link-explore" href="/explore/drinks">Explore Drinks</a>
           </button >
-          </section>
-          <Footer pathname={'explore'} />
-          <style jsx>{`
+        </section>
+        <Footer pathname={'explore'} />
+        <style jsx>{`
           * {
             margin: 0;
             padding: 0;
@@ -62,7 +62,7 @@ function Explore() {
             color: white;
            } 
           `}</style>
-        </div>
+      </div>
     </Colors>
   );
 }

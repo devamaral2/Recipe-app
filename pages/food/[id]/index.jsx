@@ -62,7 +62,7 @@ function Food({ meal }) {
             }
             <RecipeDetailsHeader
               recipe={meal}
-              url={`http://localhost:3000/food/${id}`}
+              url={`https://recipe-app-next-js-kappa.vercel.app/${id}`}
               type="food"
             />
 
