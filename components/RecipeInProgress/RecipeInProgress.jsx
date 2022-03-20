@@ -75,18 +75,20 @@ function RecipeInProgress() {
   };
 
   return (
+      <div className="body">
     <Container>
-      <RecipeDetailsHeader
-        type={ type }
-        url={ url }
-        recipe={ recipe }
-      />
-      <RecipeTemp
-        recipe={ recipe }
-        handleCheckbox={ handleCheck }
-        doneSteps={ doneSteps }
-      />
+        <RecipeDetailsHeader
+          type={type}
+          url={url}
+          recipe={recipe}
+        />
+        <RecipeTemp
+          recipe={recipe}
+          handleCheckbox={handleCheck}
+          doneSteps={doneSteps}
+        />
     </Container>
+      </div>
   );
 }
 

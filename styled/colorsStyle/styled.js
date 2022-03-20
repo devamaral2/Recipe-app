@@ -44,8 +44,12 @@ const Container = styled.div`
     background-color: rgb(211, 173, 129);
     color:white;
   }
-
-
+  .explore-foods-btn, .explore-foods-ops-btn {
+    background-color: #926c15;
+  }
+  .explore-drinks-btn {
+    background-color: #893302;
+  }
 
   /* span {
     color: ${(props) => props.theme === 'white' ? 'orange' : 'black'}

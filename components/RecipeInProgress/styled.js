@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 
 const Container = styled.main`
-  background-color: #f2f2f2;
   font-family: Arial, Helvetica, sans-serif;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding-bottom: 3rem;
 * {
     margin: 0;
@@ -19,20 +18,7 @@ const Container = styled.main`
   }
 
   div {
-    /* align-items: center; */
-    /* display: flex; */
-    /* flex-direction: column; */
-    padding-top: 1rem;
     width: 100vw;
-
-    /* h2 {
-      font-size: 22px;
-    } */
-
-    /* h3 {
-      font-size: 20px;
-      opacity: 70%;
-    } */
   }
 
   div.icons {
@@ -43,7 +29,6 @@ const Container = styled.main`
     padding: 1rem 0;
 
     button {
-      background-color: silver;
       border-radius: 50%;
       margin-right: 1rem;
       padding: 0.5rem;
