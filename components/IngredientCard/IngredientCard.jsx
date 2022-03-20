@@ -4,21 +4,22 @@ import Container from './styled';
 import * as g from '../../helpers/consts';
 import AppContext from '../../context/AppContext';
 import { fetchData } from '../../helpers/services/api';
+import Link from 'next/link';
 
 const IngredientCard = ({ name, filter, index }) => {
   const { setMeals, setDrinks, meals } = useContext(AppContext);
   const url = filter === g.FILTER_FOODS
     ? (`https://www.themealdb.com/images/ingredients/${name}-Small.png`)
     : (`https://www.thecocktaildb.com/images/ingredients/${name}-Small.png`);
-  useEffect(()=> { 
-    console.log(meals)
-  },[meals])
+ 
   
   
     return (
     <Container>
-    <a
+      <Link
       href={ filter === g.FILTER_FOODS ? '/foods/All' : '/drinks/All' }
+    >
+      <a
       onClick={ async () => {
         const data = await fetchData(filter, 'ingredient', name);
         if (filter === g.FILTER_FOODS) return setMeals(data.meals);
@@ -33,6 +34,7 @@ const IngredientCard = ({ name, filter, index }) => {
           { name }
         </p>
     </a>
+    </Link>
       </Container>
   );
 };

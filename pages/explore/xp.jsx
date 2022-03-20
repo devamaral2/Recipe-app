@@ -1,4 +1,4 @@
-// import React from 'react';
+import React from 'react';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import Colors from '../../styled/colorsStyle/Colors';
@@ -8,6 +8,7 @@ function Explore() {
 
   return (
     <Colors>
+      <ExploreLayout>
         <div className='body'>
 
           <Header
@@ -15,8 +16,6 @@ function Explore() {
             namePage="Explore"
             viewIcon="false"
           />
-          <section>
-
           <button
             type="button"
             className='explore-foods-btn'
@@ -29,40 +28,9 @@ function Explore() {
           >
             <a className="link-explore" href="/explore/drinks">Explore Drinks</a>
           </button >
-          </section>
           <Footer pathname={'explore'} />
-          <style jsx>{`
-          * {
-            margin: 0;
-            padding: 0;
-          }
-          div {
-            width: 100vw;
-            height: 100vh;
-          }
-          section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-          }
-          button {
-            font-size: 18px;
-            height: 4rem;
-            margin: 2rem;
-            width: 15rem;
-            border-radius: 10px;
-            text-decoration: none;
-          }
-          .explore-foods-btn {
-            margin-top: 6rem;
-          }
-          .link-explore {
-            margin: 3rem;
-            text-decoration: none;
-            color: white;
-           } 
-          `}</style>
         </div>
+      </ ExploreLayout>
     </Colors>
   );
 }

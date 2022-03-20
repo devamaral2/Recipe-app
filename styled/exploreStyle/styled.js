@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  flex-direction: column;
+   flex-direction: column;
   display: flex;
   align-items: center;
   width: 360px;
@@ -22,7 +22,7 @@ const Container = styled.div`
     text-decoration: none;
     color: white;
   }
-  
+   
 `;
 
 export default Container;
