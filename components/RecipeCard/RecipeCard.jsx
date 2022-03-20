@@ -1,11 +1,11 @@
 import React from 'react';
-// import * as g from '../../helpers/consts';
+import * as g from '../../helpers/consts';
 import Link from 'next/link';
 
-const RecipeCard = ({ image, name, index, dataTestId, titleTestId, id, filter }) => (
+const RecipeCard = ({ image, name, index, titleTestId, id, filter }) => (
   <a
     className="link"
-    href={`/food/${id}`}
+    href={filter === 'foods' ? `/food/${id}`: `/drink/${id}`}
     // href={`https://recipe-app-next-js-kappa.vercel.app/food/${id}`}
     // href={`http://localhost:3000/food/${id}`}
   >

@@ -12,7 +12,7 @@ import AppContext from '../../../context/AppContext';
 import PageSkeleton from '../../../components/PageSkeleton/PageSkeleton';
 import { useRouter } from 'next/router';
 
-function Food({ meal }) {
+function Drink({ drink }) {
   const { theme, setRecipe } = useContext(AppContext);
   const [buttonText, setButtonText] = useState();
   const [recommendedRecipes, setRecommendedRecipes] = useState([]);
@@ -21,7 +21,7 @@ function Food({ meal }) {
   const { id } = router.query;
   
   useEffect(() => {
-    setRecipe(meal);
+    setRecipe(drink);
   },[])
   
   useEffect(() => {
@@ -31,7 +31,7 @@ function Food({ meal }) {
       setRecommendedRecipes(res);
     };
 
-    if (Object.keys(getInProgressRecipes().meals).includes(id)) {
+    if (Object.keys(getInProgressRecipes().cocktails).includes(id)) {
       setButtonText('Continue Recipe');
     } else setButtonText('Start');
 
@@ -39,10 +39,10 @@ function Food({ meal }) {
   }, [id, setButtonText]);
 
   const setProgress = () => {
-    recipeInProgress('food', meal);
+    recipeInProgress('drink', drink);
     setButtonText('Continue Recipe');
     // setRedirect(true);
-    router.push(`/food/${id}/in-progress`)
+    router.push(`/drink/${id}/in-progress`)
   };
 
   if(router.isFallback) {
@@ -51,40 +51,30 @@ function Food({ meal }) {
     )
   }
 
-  if (Object.values(meal).length > 0) {
+  if (Object.values(drink).length > 0) {
     return (
       <Colors theme={theme}>
         <FoodLayout>
           <main className='body'>
 
             {
-              redirect && <Redirect to={`/food/${id}/in-progress`} />
+              redirect && <Redirect to={`/drink/${id}/in-progress`} />
             }
             <RecipeDetailsHeader
-              recipe={meal}
-              url={`https://recipe-app-next-js-kappa.vercel.app/${id}`}
-              type="food"
+              recipe={drink}
+              url={`https://recipe-app-next-js-kappa.vercel.app/drink/${id}`}
+              type="drink"
             />
 
-            <RecipeIngredients object={meal} />
+            <RecipeIngredients object={drink} />
 
             <div className="instructions">
-              <p>{meal.strInstructions}</p>
+              <p>{drink.strInstructions}</p>
             </div>
 
-            <div className="video">
-              <iframe
-                src={meal.strYoutube.replace('watch?v=', /embed/)}
-                title="recipe video"
-              >
-                <p>Seu navegador não possui suporte a este recurso</p>
-              </iframe>
-            </div>
-
-            <RecommendedRecipes type="food" recipes={recommendedRecipes} />
+            <RecommendedRecipes type="foods" recipes={recommendedRecipes} />
 
             <button
-              data-testid="start-recipe-btn"
               className="start-recipe"
               type="button"
               onClick={setProgress}
@@ -101,40 +91,40 @@ function Food({ meal }) {
 }
 
 export async function getStaticProps({ params }) {
-  const data = await fetchData('foods', 'getRecipe', params.id);
+  const data = await fetchData('drinks', 'getRecipe', params.id);
   return {
     props: {
-      meal: data.meals[0],
+      drink: data.drinks[0],
     }
   }
 }
 export async function getStaticPaths() {
-  const cat = ['Beef', 'Chicken', 'Goat', 'Breakfast', 'Dessert']
-  const chicken = await fetchItensByCategory('foods', 'Chicken');
-  const slicedChicked = chicken.meals.slice(0, 12);
-  const allChickens = slicedChicked.map((chicken) => chicken.idMeal);
-  const beef = await fetchItensByCategory('foods', 'Beef');
-  const slicedBeef = beef.meals.slice(0, 12);
-  const allBeefs = slicedBeef.map((chicken) => chicken.idMeal);
-  const goat = await fetchItensByCategory('foods', 'Goat');
-  const slicedGoat = goat.meals.slice(0, 12);
-  const allGoats = slicedGoat.map((chicken) => chicken.idMeal);
-  const breakfast = await fetchItensByCategory('foods', 'Breakfast');
-  const slicedBreakfast = breakfast.meals.slice(0, 12);
-  const allBreakfasts = slicedBreakfast.map((chicken) => chicken.idMeal);
-  const dessert = await fetchItensByCategory('foods', 'Dessert');
-  const slicedDesserts = dessert.meals.slice(0, 12);
-  const allDesserts = slicedDesserts.map((chicken) => chicken.idMeal);
-  const allCatagories = await await fetchData('foods', 'name', '');
-  const slicedAllCategories = allCatagories.meals.slice(0, 12);
-  const allCategoriesResult = slicedAllCategories.map((chicken) => chicken.idMeal);
+  const cat = ['Ordinary Drink', 'Cocktail', 'Shake', 'Other/Unknown', 'Cocoa']
+  const ordinaryDrink = await fetchItensByCategory('drinks', 'Ordinary Drink');
+  const slicedOrdinaryDrink = ordinaryDrink.drinks.slice(0, 12);
+  const allOrdinaryDrinks = slicedOrdinaryDrink.map((drink) => drink.idDrink);
+  const cocktail = await fetchItensByCategory('drinks', 'Cocktail');
+  const slicedCocktail = cocktail.drinks.slice(0, 12);
+  const allCocktails = slicedCocktail.map((drink) => drink.idDrink);
+  const Shake = await fetchItensByCategory('drinks', 'Shake');
+  const slicedShake = Shake.drinks.slice(0, 12);
+  const allShakes = slicedShake.map((drink) => drink.idDrink);
+  const other = await fetchItensByCategory('drinks', 'Other/Unknown');
+  const slicedOther = other.drinks.slice(0, 12);
+  const allOthers = slicedOther.map((drink) => drink.idDrink);
+  const cocoa = await fetchItensByCategory('drinks', 'Cocoa');
+  const slicedCocoa = cocoa.drinks.slice(0, 12);
+  const allCocoas = slicedCocoa.map((drink) => drink.idDrink);
+  const allCatagories = await await fetchData('drinks', 'name', '');
+  const slicedAllCategories = allCatagories.drinks.slice(0, 12);
+  const allCategoriesResult = slicedAllCategories.map((drink) => drink.idDrink);
   const allPaths = [
-    ...allBeefs,
-    ...allBreakfasts,
-    ...allCategoriesResult,
-    ...allChickens,
-    ...allDesserts,
-    ...allGoats,
+    ...allCocktails,
+    ...allOthers,
+    ...allShakes,
+    ...allOrdinaryDrinks,
+    ...allCocoas,
+    ...allCategoriesResult
   ]
   const results = allPaths.map((idNumber) => {
     return {
@@ -149,7 +139,7 @@ export async function getStaticPaths() {
 }
 
 // export async function getStaticPaths() {
-//   const categories = await fetchCategory('foods');
+//   const categories = await fetchCategory('drinks');
 //     const sliced = categories.meals.slice(0,5)
 //     const allPaths = sliced.map((category) => {
 //         return {
@@ -161,4 +151,4 @@ export async function getStaticPaths() {
 
 
 
-export default Food;
+export default Drink;

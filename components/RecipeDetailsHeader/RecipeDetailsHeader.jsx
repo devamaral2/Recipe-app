@@ -59,11 +59,9 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
       </div>
       <h2>
         { title }
-        {/* { recipe.strMeal } */}
       </h2>
       <h3>
         { category }
-        {/* { recipe.strCategory } */}
       </h3>
       <style jsx>{`
         @keyframes fade-in {

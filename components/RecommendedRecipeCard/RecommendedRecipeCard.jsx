@@ -14,7 +14,8 @@ const RecommendedRecipeCard = ({
   <div className="recommended-card">
     <a
       className="recommended-link"
-      href={ filter !== g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
+      href={`/drink/${id}`}
+      // href={ filter !== g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
     >
       <img
         src={ image }
