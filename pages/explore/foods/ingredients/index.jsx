@@ -5,9 +5,9 @@ import AppContext from '../../../../context/AppContext';
 import IngredientCard from '../../../../components/IngredientCard/IngredientCard';
 import * as g from '../../../../helpers/consts';
 import Colors from '../../../../styled/colorsStyle/Colors';
+import { fetchIngredients } from '../../../../helpers/services/api';
 
-function ExploreFoodIngredients() {
-  const { foodsIngredients } = useContext(AppContext);
+function ExploreFoodIngredients({ ingredients}) {
   return (
     <Colors>
       <div className="body">
@@ -16,10 +16,9 @@ function ExploreFoodIngredients() {
           viewIcon="false"
           pathname="explore"
         />
-        <Container>
-
+        <section>       
           {
-            foodsIngredients.length > 0 && foodsIngredients.map((ingredient, index) => {
+            ingredients.map((ingredient, index) => {
               if (index <= g.MAX_NUMBER_OF_RESULTS) {
                 return (
                   <IngredientCard
@@ -33,11 +32,27 @@ function ExploreFoodIngredients() {
               return null;
             })
           }
-        </Container>
+      </section>
         <Footer pathname="explore" />
       </div>
+      <style jsx> {`
+        section { 
+          display: flex;
+          flex-direction: column; 
+        }
+        
+      `}</style>
     </Colors>
   );
+}
+
+export async function getStaticProps() {
+  const foodsIngredientsData = await fetchIngredients(g.FILTER_FOODS);
+  return {
+    props: {
+      ingredients: foodsIngredientsData.meals,
+    }
+  }
 }
 
 export default ExploreFoodIngredients;

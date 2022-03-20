@@ -50,7 +50,6 @@ const SearchBar = ({ currentPage }) => {
       <Container>
         { redirect && <Redirect to={ `/${currentPage}/${id}` } /> }
         <input
-          data-testid="search-input"
           onChange={ (e) => setSearchValue(e.target.value) }
           type="text"
           value={ searchValue }

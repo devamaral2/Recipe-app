@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Container from './styled';
 import * as g from '../../helpers/consts';
 import AppContext from '../../context/AppContext';
@@ -12,9 +11,8 @@ const IngredientCard = ({ name, filter, index }) => {
     ? (`https://www.themealdb.com/images/ingredients/${name}-Small.png`)
     : (`https://www.thecocktaildb.com/images/ingredients/${name}-Small.png`);
   return (
-    <Link
-      data-testid={ `${index}-ingredient-card` }
-      to={ filter === g.FILTER_FOODS ? '/foods/' : '/drinks/' }
+    <a
+      href={ filter === g.FILTER_FOODS ? '/foods/' : '/drinks/' }
       onClick={ async () => {
         const data = await fetchData(filter, 'ingredient', name);
         if (filter === g.FILTER_FOODS) return setMeals(data.meals);
@@ -25,13 +23,12 @@ const IngredientCard = ({ name, filter, index }) => {
         <img
           src={ url }
           alt={ name }
-          data-testid={ `${index}-card-img` }
         />
-        <p data-testid={ `${index}-card-name` }>
+        <p>
           { name }
         </p>
       </Container>
-    </Link>
+    </a>
   );
 };
 IngredientCard.propTypes = {

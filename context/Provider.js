@@ -18,7 +18,7 @@ const Provider = ({ children }) => {
   const [favoriteRecipes, setFavoriteRecipes] = useState([]);
   const [mealsCategory, setMealsCategory] = useState([]);
   const [drinksCategory, setDrinksCategory] = useState([]);
-  const [foodsIngredients, setFoodsIngredients] = useState([]);
+  // const [foodsIngredients, setFoodsIngredients] = useState([]);
   const [drinksIngredients, setDrinksIngredients] = useState([]);
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState(g.ALL);
@@ -65,7 +65,7 @@ const Provider = ({ children }) => {
   }, [area]);
 
   useEffect(() => {
-    getIngredients();
+    // getIngredients();
     getAllAreas();
   }, []);
 
@@ -82,7 +82,7 @@ const Provider = ({ children }) => {
     setRecipeFilter,
     favoriteRecipes,
     setFavoriteRecipes,
-    foodsIngredients,
+    // foodsIngredients,
     drinksIngredients,
     getMealsAndDrinks,
     areas,
