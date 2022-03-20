@@ -16,7 +16,7 @@ const RecommendedRecipes = ({ type, recipes }) => (
               image={ type === 'drink' ? recipe.strMealThumb : recipe.strDrinkThumb }
               name={ type === 'drink' ? recipe.strMeal : recipe.strDrink }
               titleTestId="recomendation-title"
-              id={ recipe.id }
+              id={ recipe.idDrink }
               filter={ `${type}s` }
             />
           );

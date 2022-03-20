@@ -28,6 +28,8 @@ function Drink({ drink }) {
     const fetchRecommendedRecipes = async () => {
       const data = await fetchData('drinks', 'name', '');
       const res = Object.values(data)[0]
+      console.log(res)
+      console.log(recommendedRecipes)
       setRecommendedRecipes(res);
     };
 
