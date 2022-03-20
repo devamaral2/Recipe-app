@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 import copy from 'clipboard-copy';
 import AppContext from '../../context/AppContext';
 import { removeFavoriteRecipe } from '../../helpers/localStorage';
-import shareIcon from '../../images/shareIcon.svg';
-import blackHeartIcon from '../../images/blackHeartIcon.svg';
+import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 
 const FavoriteRecipeCard = ({ index, recipe }) => {
   const { favoriteRecipes, setFavoriteRecipes } = useContext(AppContext);
@@ -15,7 +14,7 @@ const FavoriteRecipeCard = ({ index, recipe }) => {
   const category = recipe.type === 'food' ? recipe.category : recipe.alcoholicOrNot;
 
   const copyToClipboard = () => {
-    copy(`http://localhost:3000/${type}s/${id}`);
+    copy(`http://localhost:3000/${type}/${id}`);
     setLinkCopied(true);
   };
 
@@ -25,33 +24,31 @@ const FavoriteRecipeCard = ({ index, recipe }) => {
   };
 
   return (
-    <div>
-      <Link key={ index } to={ `/${recipe.type}s/${recipe.id}` }>
-        <img
-          alt={ name }
-          data-testid={ `${index}-horizontal-image` }
-          src={ image }
-          style={ { width: '100%' } }
-        />
+    <div className='body'>
 
-        <p data-testid={ `${index}-horizontal-top-text` }>
-          { `${nationality} - ${category}` }
-        </p>
-
-        <h2 data-testid={ `${index}-horizontal-name` }>
-          { name }
-        </h2>
+      <Link key={index} href={`/${recipe.type}/${recipe.id}`}>
+        <a>
+          <img
+            alt={name}
+            src={image}
+            style={{ width: '50px' }}
+          />
+        </a>
       </Link>
+      <div> </div>
+          <p>
+            {`${nationality} - ${category}`}
+          </p>
+
+          <h2>
+            {name}
+          </h2>
 
       <button
         type="button"
-        onClick={ copyToClipboard }
+        onClick={copyToClipboard}
       >
-        <img
-          data-testid={ `${index}-horizontal-share-btn` }
-          src={ shareIcon }
-          alt="Share icon"
-        />
+        <AiOutlineShareAlt />
       </button>
 
       {
@@ -62,15 +59,51 @@ const FavoriteRecipeCard = ({ index, recipe }) => {
 
       <button
         type="button"
-        onClick={ removeFavorite }
-      >
-        <img
-          data-testid={ `${index}-horizontal-favorite-btn` }
-          src={ blackHeartIcon }
-          alt="favorite icon"
-        />
+        onClick={removeFavorite}
+        >
+        <AiFillHeart />
       </button>
-    </div>
+      <style jsx>{`
+      * {
+        text-decoration:none; 
+        font-family: Arial, Helvetica, sans-serif;
+      }
+       .link {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin: 40px;
+        position:relative;
+        width: 70%;
+        min-height: 16rem;
+      }
+      .card-img {
+        border-radius: 50%;
+        z-index: 1;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 15px;
+      }
+      .card-name {
+        text-align: center;
+        text-decoration:none; 
+        z-index: 1;
+        margin-top: 30px;
+        font-size: 1.6rem;
+      }
+
+      .card {
+        float: left;
+        width: 100%;
+        min-height: 88%;
+        z-index: 0;
+        position:absolute;
+        bottom: 0;
+        border-radius: 1.5rem;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+      } 
+    `}</style>
+
+      </div>
   );
 };
 

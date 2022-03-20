@@ -63,8 +63,7 @@ function ExploreFoodsNationalities({ areas, initialResults }) {
           display: flex;
           flex-direction: column;
           align-items: center;
-          background-color: whitesmoke;
-          margin-bottom: 60px;
+          margin-bottom: 48px;
           width: 100%;
         }
         section {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import copy from 'clipboard-copy';
 import * as g from '../../helpers/consts';
-import shareIcon from '../../images/shareIcon.svg';
+import { AiOutlineShareAlt } from "react-icons/ai";
 
 const DoneRecipeCard = ({ index, recipe }) => {
   const [linkCopied, setLinkCopied] = useState(false);
@@ -54,11 +54,7 @@ const DoneRecipeCard = ({ index, recipe }) => {
         type="button"
         onClick={ copyToClipboard }
       >
-        <img
-          data-testid={ `${index}-horizontal-share-btn` }
-          src={ shareIcon }
-          alt="Share icon"
-        />
+        <AiOutlineShareAlt />
       </button>
 
       {

@@ -34,7 +34,7 @@ function RecipeTemp({ recipe, handleCheckbox, doneSteps }) {
 
   const handleClick = (event) => {
     event.preventDefault();
-    router.push('/done-recipes');
+    router.push('/profile/done-recipes');
   };
 
   return (

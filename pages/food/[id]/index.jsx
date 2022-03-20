@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Redirect, useParams } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { fetchData, fetchItensByCategory } from '../../../helpers/services/api';
 import { recipeInProgress, getInProgressRecipes } from '../../../helpers/localStorage';
 import RecipeDetailsHeader from

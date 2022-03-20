@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState, useContext } from 'react';
-import Footer from '../components/Footer/Footer';
-import Header from '../components/Header/Header';
-import AppContext from '../context/AppContext';
-import Colors from '../styled/colorsStyle/Colors'
+import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
+import AppContext from '../../context/AppContext';
+import Colors from '../../styled/colorsStyle/Colors'
 
 export default function Profile() {
   const { theme } = useContext(AppContext)
@@ -27,7 +27,7 @@ export default function Profile() {
 
           <span>{emailUser}</span>
           <a
-            href="/done-recipes"
+            href="/profile/done-recipes"
           >
             <button
               className='large-buttons'
@@ -36,7 +36,7 @@ export default function Profile() {
               Done Recipes
             </button>
           </a>
-          <a href="/favorite-recipes">
+          <a href="/profile/favorite-recipes">
             <button
               className='large-buttons'
             >
