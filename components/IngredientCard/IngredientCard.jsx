@@ -12,14 +12,13 @@ const IngredientCard = ({ name, filter, index }) => {
     ? (`https://www.themealdb.com/images/ingredients/${name}-Small.png`)
     : (`https://www.thecocktaildb.com/images/ingredients/${name}-Small.png`);
  
-  
-  
     return (
     <Container>
       <Link
       href={ filter === g.FILTER_FOODS ? '/foods/All' : '/drinks/All' }
     >
       <a
+      className='ingredient-card'
       onClick={ async () => {
         const data = await fetchData(filter, 'ingredient', name);
         if (filter === g.FILTER_FOODS) return setMeals(data.meals);

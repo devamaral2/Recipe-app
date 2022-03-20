@@ -25,7 +25,7 @@ const Container = styled.div`
   .orange {
     color: rgb(211, 173, 129);
   }
-  .footer, .card, .recommended-card {
+  .footer, .card, .recommended-card, .ingredient-card {
     background-color: rgba(248,248,248);
   }
   .bg-orange {

@@ -35,13 +35,6 @@ const Provider = ({ children }) => {
     }
   }
 
-  async function getAllAreas() {
-    const areasData = await fetchAreas();
-    const areasArray = areasData.meals;
-    const arrayWithAlloption = [...areasArray, { strArea: g.ALL }];
-    setAreas(arrayWithAlloption);
-  }
-
   async function getMealsByNationality() {
     if (area === g.ALL) {
       const startingMeals = await fetchData(g.FILTER_FOODS, 'name', '');
@@ -56,10 +49,6 @@ const Provider = ({ children }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [area]);
 
-  useEffect(() => {
-    getAllAreas();
-  }, []);
-
   const contextValue = {
     meals,
     setMeals,
@@ -73,7 +62,6 @@ const Provider = ({ children }) => {
     setRecipeFilter,
     favoriteRecipes,
     setFavoriteRecipes,
-    // foodsIngredients,
     drinksIngredients,
     getMealsAndDrinks,
     areas,
