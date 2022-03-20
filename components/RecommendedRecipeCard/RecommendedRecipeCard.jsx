@@ -9,11 +9,12 @@ const RecommendedRecipeCard = ({
   dataTestId,
   titleTestId,
   id,
+  type
 }) => (
   <div className="recommended-card">
     <a
       className="recommended-link"
-      href={`/drink/${id}`}
+      href={type === 'food' ? `/food/${id}` : `/drink/${id}`}
       // href={ filter !== g.FILTER_FOODS ? `/foods/${id}` : `/drinks/${id}` }
     >
       <img

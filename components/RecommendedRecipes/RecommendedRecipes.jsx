@@ -17,6 +17,7 @@ const RecommendedRecipes = ({ type, recipes }) => (
               name={ type === 'food' ? recipe.strMeal : recipe.strDrink }
               titleTestId="recomendation-title"
               id={ type === 'food' ? recipe.idMeal : recipe.idDrink }
+              type={ type }
             />
           );
         }
