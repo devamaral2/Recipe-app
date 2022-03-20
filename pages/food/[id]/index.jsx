@@ -26,8 +26,9 @@ function Food({ meal }) {
   
   useEffect(() => {
     const fetchRecommendedRecipes = async () => {
-      const data = await fetchData('drinks', 'name', '');
+      const data = await fetchData('foods', 'name', '');
       const res = Object.values(data)[0]
+      console.log(res)
       setRecommendedRecipes(res);
     };
 

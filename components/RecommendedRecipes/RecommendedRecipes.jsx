@@ -13,11 +13,10 @@ const RecommendedRecipes = ({ type, recipes }) => (
               key={ `${index}-recomendation-card ` }
               index={ index }
               dataTestId={ `${index}-recomendation-card` }
-              image={ type === 'drink' ? recipe.strMealThumb : recipe.strDrinkThumb }
-              name={ type === 'drink' ? recipe.strMeal : recipe.strDrink }
+              image={ type === 'food' ? recipe.strMealThumb : recipe.strDrinkThumb }
+              name={ type === 'food' ? recipe.strMeal : recipe.strDrink }
               titleTestId="recomendation-title"
-              id={ recipe.idDrink }
-              filter={ `${type}s` }
+              id={ type === 'food' ? recipe.idMeal : recipe.idDrink }
             />
           );
         }

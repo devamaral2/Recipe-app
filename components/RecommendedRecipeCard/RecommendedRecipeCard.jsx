@@ -9,7 +9,6 @@ const RecommendedRecipeCard = ({
   dataTestId,
   titleTestId,
   id,
-  filter,
 }) => (
   <div className="recommended-card">
     <a
