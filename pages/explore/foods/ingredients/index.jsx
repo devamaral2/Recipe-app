@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Header from '../../../../components/Header/Header';
 import Footer from '../../../../components/Footer/Footer';
-import AppContext from '../../../../context/AppContext';
 import IngredientCard from '../../../../components/IngredientCard/IngredientCard';
 import * as g from '../../../../helpers/consts';
 import Colors from '../../../../styled/colorsStyle/Colors';
@@ -36,6 +35,9 @@ function ExploreFoodIngredients({ ingredients}) {
         <Footer pathname="explore" />
       </div>
       <style jsx>{`
+        div {
+          padding: 60px;
+        }
         section { 
           display: flex;
           flex-direction: column; 
