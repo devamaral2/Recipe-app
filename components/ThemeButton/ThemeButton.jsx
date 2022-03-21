@@ -10,7 +10,6 @@ export default function ThemeButton () {
       onClick={() => setTheme((prev) => prev === 'light' ? 'dark' : 'light')} 
       className="theme-button" 
       >
-      {theme === 'light' ? 'Dark' : 'Light'}
     </Button>
   )
 }

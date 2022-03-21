@@ -106,6 +106,21 @@ const ContainerIndex = styled.main`
     top: 0
   }
 
+.theme-icon {
+  position: absolute;
+  top: 1.5rem;;
+  right: 3.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: aliceblue;
+  z-index: 1;
+  align-items: center;
+  font-size: 0.5rem;
+  padding: 5px;
+}
+
+
 `;
 
 export default ContainerIndex;

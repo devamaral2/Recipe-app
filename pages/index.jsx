@@ -7,6 +7,7 @@ import Head from '../components/Head/Head';
 import Colors from '../styled/colorsStyle/Colors';
 import AppContext from '../context/AppContext';
 import ThemeButton from '../components/ThemeButton/ThemeButton'
+import { FiSun, FiMoon } from 'react-icons/fi'
 
 export default function Login() {
   const { theme } = useContext(AppContext);
@@ -41,6 +42,8 @@ export default function Login() {
         />
         <h1>Login</h1>
         <ThemeButton />
+          {theme !== 'light' ? <FiSun className='theme-icon' /> : <FiMoon className='theme-icon'/>}
+      
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">
             <input
