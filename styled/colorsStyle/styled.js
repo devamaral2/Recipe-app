@@ -1,29 +1,29 @@
 import styled from 'styled-components';
 
-const DarkTheme = "rgba(248,248,248)";
-const WhiteTheme = "rgb(40, 40, 40)";
-const backgroundWhiteTheme = "#f2f2f2";
-const backgroundBlackTheme = "black";
+const darkTheme = "rgba(248,248,248)";
+const lightTheme = "rgb(40, 40, 40)";
+const bgLightTheme = "#f2f2f2";
+const bgDarkTheme = "black";
+const cardLight = "rgba(248,248,248)";
 
 
 const Container = styled.div`
   .body, .link, main {
     /* background-color: black; */
-    background-color: #f2f2f2;
+    background-color: ${(props) => props.theme === 'light' ? bgLightTheme : bgDarkTheme}
   }
-  /* input {
-    color: black;
-    background-color: #ffff;
-  } */
   .login-inputs {
-    color: white;
+    /* border-bottom: 2px solid rgba(255, 255, 255, 0.329); */
+    border-bottom: 2px solid #495057;
   }
 
   input::placeholder {
-    color: silver;
+    color: #495057;
+    /* color: silver; */
+    /* color: black; */
   }
-  span, label, p, h2, h4, .recommended-text, .default-links, .card-name, .ingredients, .share-icon, .heart {
-    color: rgb(40, 40, 40);
+  span, h1, .login-inputs, label, p, h2, h4, .recommended-text, .default-links, .card-name, .ingredients, .share-icon, .heart {
+    color:  ${(props) => props.theme === 'light' ? lightTheme : darkTheme}
   }
   .large-buttons {
     background-color: #495057;
@@ -46,10 +46,6 @@ const Container = styled.div`
     
   }
 
-  .login-button {
-    background-color: rgb(211, 173, 129);
-    color:white;
-  }
   .explore-foods-btn, .explore-foods-ops-btn {
     background-color: #926c15;
   }

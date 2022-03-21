@@ -22,8 +22,7 @@ const Provider = ({ children }) => {
   const [areas, setAreas] = useState([]);
   const [area, setArea] = useState(g.ALL);
   const [mealsByNationality, setMealsByNationality] = useState([]);
-  const [theme, setTheme] = useState('white');
-  const [blue, setBlue] = useState('blue')
+  const [theme, setTheme] = useState('light');
 
 
   async function getMealsAndDrinks(selection) {
@@ -73,7 +72,6 @@ const Provider = ({ children }) => {
     setTheme,
     recipe,
     setRecipe,
-    blue,
   };
 
   return (

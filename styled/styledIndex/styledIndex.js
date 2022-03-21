@@ -23,6 +23,7 @@ const ContainerIndex = styled.main`
     top: 2rem;
     position: absolute;
     z-index: 1;
+    font-size: 4rem;
   }
 
   img {
@@ -53,7 +54,7 @@ const ContainerIndex = styled.main`
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
     border:none;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.329);
+    /* border-bottom: 2px solid rgba(255, 255, 255, 0.329); */
     margin-bottom: 1.5rem;
     padding: 0.5rem 0.5rem 0.5rem 0;
     outline: none;
@@ -62,7 +63,6 @@ const ContainerIndex = styled.main`
   }
 
   input::placeholder {
-    color: silver;
     z-index: 1;
   }
 
@@ -78,13 +78,25 @@ const ContainerIndex = styled.main`
     position: absolute;
     bottom: 130px;
     border: 2px solid rgba(255, 255, 255, 0.329);
-    opacity: 0.8;
-    border-radius: 30px;
+    border-radius: 25px;
     margin-top: 0.5rem;
     padding: 0.8rem;
     width: 10rem;
     z-index: 1;
   }
+  .disabled-login-btn {
+    background-color: #baa48a;
+    color: #ced4da;
+    opacity: 0.9;
+  }
+  .login-button {
+    background-color: #c9985d;
+    /* background-color: rgb(211, 173, 129); */
+    color:white;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  }
+
+
   .background-image {
     z-index: 0;
     width: 100vw;

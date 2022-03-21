@@ -7,7 +7,7 @@ import Colors from '../../../../styled/colorsStyle/Colors';
 import { fetchIngredients } from '../../../../helpers/services/api';
 import AppContext from '../../../../context/AppContext';
 
-function ExploreFoodIngredients({ ingredients}) {
+function ExploreDrinkIngredients({ ingredients}) {
   const { theme } = useContext(AppContext);
   return (
     <Colors theme={ theme }>
@@ -59,4 +59,4 @@ export async function getStaticProps() {
   }
 }
 
-export default ExploreFoodIngredients;
+export default ExploreDrinkIngredients;

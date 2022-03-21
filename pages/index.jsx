@@ -13,6 +13,8 @@ export default function Login() {
   const [password, setPasswd] = useState('');
   const [disabled, setDisabled] = useState(true);
   const router = useRouter();
+  const background = theme === 'light' 
+    ? require('../public/ligthBackground.jpg') : require('../public/image6.jpg');
 
   useEffect(() => {
     if (emailRegex.test(email) && password.length > MIN_PASSWD_LENGTH) {
@@ -62,7 +64,7 @@ export default function Login() {
           </label>
           <button
             type="submit"
-            className='login-button'
+            className={ disabled ? 'disabled-login-btn' : 'login-button' }
             disabled={disabled}
           >
             Entrar
@@ -70,7 +72,7 @@ export default function Login() {
         </form>
         <Image
           className="background-image"
-          src={require("../public/image6.jpg")}
+          src={background}
           alt="img"
           layout='fill'
           objectFit='cover'
