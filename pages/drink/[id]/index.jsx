@@ -16,7 +16,7 @@ function Drink({ drink }) {
   const { theme, setRecipe } = useContext(AppContext);
   const [buttonText, setButtonText] = useState();
   const [recommendedRecipes, setRecommendedRecipes] = useState([]);
-  const [redirect, setRedirect] = useState(false);
+  // const [redirect, setRedirect] = useState(false);
   const router = useRouter();
   const { id } = router.query;
   
@@ -59,9 +59,9 @@ function Drink({ drink }) {
         <FoodLayout>
           <main className='body'>
 
-            {
+            {/* {
               redirect && <Redirect to={`/drink/${id}/in-progress`} />
-            }
+            } */}
             <RecipeDetailsHeader
               recipe={drink}
               url={`https://recipe-app-next-js-kappa.vercel.app/drink/${id}`}
