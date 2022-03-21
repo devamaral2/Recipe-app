@@ -7,8 +7,13 @@ import FavoriteRecipeCard from '../../components/FavoriteRecipeCard/FavoriteReci
 import Colors from '../../styled/colorsStyle/Colors';
 
 function FavoriteRecipes() {
-  const { recipeFilter, favoriteRecipes: favorite, theme } = useContext(AppContext);
+  const { recipeFilter, favoriteRecipes: favorite, theme, setTheme } = useContext(AppContext);
   const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    const data = localStorage.getItem('theme') 
+    data && setTheme(JSON.parse(data))
+  }, [])
 
   useEffect(() => {
     const favoriteRecipes = getFavoriteRecipes();

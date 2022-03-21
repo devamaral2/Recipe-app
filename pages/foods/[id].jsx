@@ -11,9 +11,15 @@ import Colors from '../../styled/colorsStyle/Colors';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 function Foods({ foods, categories, id }) {
-  const { theme, meals } = useContext(AppContext);
+  const { theme, meals, setTheme } = useContext(AppContext);
   const cardsContent = meals.length === 0 ? foods : meals
   const router = useRouter();
+
+  useEffect(() => {
+    const data = localStorage.getItem('theme') 
+    data && setTheme(JSON.parse(data))
+  }, [])
+
   return (
     <Colors theme= { theme } >
       <div className='body'>

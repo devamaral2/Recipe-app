@@ -29,6 +29,7 @@ export default function Login() {
     event.preventDefault();
     localStorage.setItem('mealsToken', '1');
     localStorage.setItem('cocktailsToken', '1');
+    localStorage.setItem('theme', theme)
     localStorage.setItem('user', JSON.stringify({ email }));
     router.push('/foods/All');
   };

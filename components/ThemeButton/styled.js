@@ -12,6 +12,7 @@ const Button = styled.button`
   z-index: 2;
   align-items: center;
   font-size: 0.8rem;
+  
 `;
 
 export default Button;

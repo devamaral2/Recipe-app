@@ -7,8 +7,13 @@ import DoneRecipeCard from '../../components/DoneRecipeCard/DoneRecipeCard';
 import Colors from '../../styled/colorsStyle/Colors';
 
 function DoneRecipes() {
-  const { recipeFilter, theme } = useContext(AppContext);
+  const { recipeFilter, theme, setTheme } = useContext(AppContext);
   const [recipes, setRecipes] = useState([]);
+  
+  useEffect(() => {
+    const data = localStorage.getItem('theme') 
+    data && setTheme(JSON.parse(data))
+  }, [])
 
   useEffect(() => {
     const doneRecipes = getDoneRecipes();

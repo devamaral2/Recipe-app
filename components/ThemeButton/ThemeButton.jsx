@@ -7,7 +7,7 @@ export default function ThemeButton () {
   return (
     <Button
       type='button'
-      onClick={() => setTheme((prev) => prev === 'light' ? 'dark' : 'light')} 
+      onClick={() =>  setTheme((prev) => prev === 'light' ? 'dark' : 'light') } 
       className="theme-button" 
       >
     </Button>

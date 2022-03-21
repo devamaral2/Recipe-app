@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { fetchData } from '../../../helpers/services/api';
 import Header from '../../../components/Header/Header';
 import Footer from '../../../components/Footer/Footer';
 import Colors from '../../../styled/colorsStyle/Colors';
 import { useRouter } from 'next/router';
+import AppContext from '../../../context/AppContext';
 
 function ExploreFoods() {
+  const { theme } = useContext(AppContext);
   const router = useRouter();
   const randomRecipe = async () => {
     const data = await fetchData('foods', 'random', '');
@@ -14,7 +16,7 @@ function ExploreFoods() {
   };
 
   return (
-    <Colors>
+    <Colors theme={theme}>
       <div className='body'>
         <Header
           pathname="explore"
