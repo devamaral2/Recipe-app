@@ -6,8 +6,8 @@ import { useRouter } from 'next/router'
 import Head from '../components/Head/Head';
 import Colors from '../styled/colorsStyle/Colors';
 import AppContext from '../context/AppContext';
-import ThemeButton from '../components/ThemeButton/ThemeButton'
-import { FiSun, FiMoon } from 'react-icons/fi'
+// import ThemeButton from '../components/ThemeButton/ThemeButton'
+// import { FiSun, FiMoon } from 'react-icons/fi'
 
 export default function Login() {
   const { theme } = useContext(AppContext);
@@ -29,7 +29,6 @@ export default function Login() {
     event.preventDefault();
     localStorage.setItem('mealsToken', '1');
     localStorage.setItem('cocktailsToken', '1');
-    localStorage.setItem('theme', theme)
     localStorage.setItem('user', JSON.stringify({ email }));
     router.push('/foods/All');
   };
@@ -42,8 +41,8 @@ export default function Login() {
           icon={'../public/new-recipe-icon.png'}
         />
         <h1>Login</h1>
-        <ThemeButton />
-          {theme !== 'light' ? <FiSun className='theme-icon' /> : <FiMoon className='theme-icon'/>}
+        {/* <ThemeButton /> */}
+          {/* {theme !== 'light' ? <FiSun className='theme-icon' /> : <FiMoon className='theme-icon'/>} */}
       
         <form onSubmit={handleSubmit}>
           <label htmlFor="email">

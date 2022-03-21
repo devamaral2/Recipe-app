@@ -11,11 +11,6 @@ function FavoriteRecipes() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    const data = localStorage.getItem('theme') 
-    data && setTheme(data)
-  }, [])
-
-  useEffect(() => {
     const favoriteRecipes = getFavoriteRecipes();
     const filteredRecipes = favoriteRecipes.filter((recipe) => {
       if (recipeFilter === 'food' && recipe.type === 'food') return recipe;

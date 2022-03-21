@@ -1,18 +1,14 @@
 import { useRouter } from 'next/router';
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import AppContext from '../../context/AppContext';
 import Colors from '../../styled/colorsStyle/Colors'
 
 export default function Profile() {
-  const { theme, setTheme } = useContext(AppContext)
+  const { theme } = useContext(AppContext)
   const router = useRouter();
   const [emailUser, setEmailuser] = useState()
-  useEffect(() => {
-    const data = localStorage.getItem('theme') 
-    data && setTheme(data)
-  }, [])
 
   return (
     <Colors theme={theme}>
