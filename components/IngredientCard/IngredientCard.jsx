@@ -22,7 +22,7 @@ const IngredientCard = ({ name, filter, index }) => {
       onClick={ async () => {
         const data = await fetchData(filter, 'ingredient', name);
         if (filter === g.FILTER_FOODS) return setMeals(data.meals);
-        setDrinks(data.drinks);
+        setDrinks(data.drinks)
       } }
     >
         <img
