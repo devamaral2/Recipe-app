@@ -6,13 +6,12 @@ import AppContext from '../../context/AppContext';
 import Colors from '../../styled/colorsStyle/Colors'
 
 export default function Profile() {
-  const { theme } = useContext(AppContext)
+  const { theme, setTheme } = useContext(AppContext)
   const router = useRouter();
   const [emailUser, setEmailuser] = useState()
   useEffect(() => {
-    const user = localStorage.getItem('user');
-    const data = JSON.parse(user);
-    setEmailuser(data.email)
+    const data = localStorage.getItem('theme') 
+    data && setTheme(data)
   }, [])
 
   return (

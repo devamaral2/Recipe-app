@@ -12,7 +12,7 @@ function DoneRecipes() {
   
   useEffect(() => {
     const data = localStorage.getItem('theme') 
-    data && setTheme(JSON.parse(data))
+    data && setTheme(data)
   }, [])
 
   useEffect(() => {

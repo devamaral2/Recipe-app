@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import * as g from '../../helpers/consts'
 import { fetchData, fetchCategory, fetchItensByCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
@@ -17,7 +17,7 @@ function Foods({ foods, categories, id }) {
 
   useEffect(() => {
     const data = localStorage.getItem('theme') 
-    data && setTheme(JSON.parse(data))
+    data && setTheme(data)
   }, [])
 
   return (
