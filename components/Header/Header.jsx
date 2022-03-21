@@ -19,9 +19,9 @@ export default function Header({ namePage, viewIcon, pathname }) {
             type="button"
             onClick={() => setViewSearchBar((Prev) => !Prev)}
           >
-            <BiSearchAlt className='icons' />
+            <BiSearchAlt className='search-icon' />
           </button>
-        ) : (<div />)
+        ) : (<div className='hidden-div'/>)
       }
     </Container>
   );

@@ -23,7 +23,7 @@ const ContainerIndex = styled.main`
     top: 2rem;
     position: absolute;
     z-index: 1;
-    font-size: 4rem;
+    font-size: 3.2rem;
   }
 
   img {
@@ -54,12 +54,13 @@ const ContainerIndex = styled.main`
     font-family: Arial, Helvetica, sans-serif;
     background-color: transparent;
     border:none;
-    /* border-bottom: 2px solid rgba(255, 255, 255, 0.329); */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.329);
     margin-bottom: 1.5rem;
     padding: 0.5rem 0.5rem 0.5rem 0;
     outline: none;
     width: 100%;
     z-index: 1;
+    color: white;
   }
 
   input::placeholder {
@@ -71,7 +72,7 @@ const ContainerIndex = styled.main`
     z-index: 1;
   }
 
-  button {
+  .enter-btn {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.1rem;
     font-weight: bold;

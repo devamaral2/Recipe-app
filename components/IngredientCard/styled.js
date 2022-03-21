@@ -5,12 +5,13 @@ const Container = styled.div`
     margin: 0;
     padding: 0;
   }
-    width: 75vw;
-    height: 6rem;
-    margin: 2.5rem;
+  width: 75vw;
+  height: 6rem;
+  margin: 2.5rem;
     position: relative;
     border-radius: 1.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
     
   a {
     width: 100%;

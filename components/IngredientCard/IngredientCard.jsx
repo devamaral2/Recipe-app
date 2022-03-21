@@ -13,12 +13,15 @@ const IngredientCard = ({ name, filter, index }) => {
     : (`https://www.thecocktaildb.com/images/ingredients/${name}-Small.png`);
  
     return (
-    <Container>
+      
+
+    <div className='card'>
       <Link
       href={ filter === g.FILTER_FOODS ? '/foods/All' : '/drinks/All' }
-    >
-      <a
-      className='ingredient-card'
+      >
+      {/* <div className="card"> */}
+
+      <a className='ingredient-card'
       onClick={ async () => {
         const data = await fetchData(filter, 'ingredient', name);
         if (filter === g.FILTER_FOODS) return setMeals(data.meals);
@@ -33,8 +36,46 @@ const IngredientCard = ({ name, filter, index }) => {
           { name }
         </p>
     </a>
+    {/* </div> */}
     </Link>
-      </Container>
+    <style jsx>{`
+      * {
+    margin: 0;
+    padding: 0;
+  }
+  .card{
+  width: 75vw;
+  height: 6rem;
+  margin: 2.5rem;
+    position: relative;
+    border-radius: 1.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+    
+  a {
+    width: 100%;
+    border-radius: 1.5rem;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+  }
+  p {
+    position: absolute;
+    right: 2rem;
+    bottom: 1.2rem;
+  }
+  img {
+    width: 120px;
+    position: absolute;
+    left: -1.5rem;
+    bottom: 1rem;
+
+  }
+    
+    `}</style>
+      </div>
+   
   );
 };
 IngredientCard.propTypes = {

@@ -14,6 +14,7 @@ const Container = styled.header`
   div {
     height: 20px;
     width: 20px;
+    background-color: aqua;
   }
 
   span {
@@ -24,10 +25,18 @@ const Container = styled.header`
     font-size: 1.5rem;
   }
   
+  .search-icon {
+    font-size: 1.5rem;
+  }
+
   button {
     border: none;
+    background-color: transparent;
   }
-  
+  .hidden-div {
+    background-color: transparent;
+  }
+
 `;
 
 export default Container;
