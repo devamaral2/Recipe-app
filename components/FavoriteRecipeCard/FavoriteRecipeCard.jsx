@@ -37,9 +37,9 @@ const FavoriteRecipeCard = ({ index, recipe }) => {
         </Link>
         <div className="favorite-content">
 
-          <h2>
+          <h3>
             {name}
-          </h2>
+          </h3>
           <p>
             {`${nationality} - ${category}`}
           </p>

@@ -7,16 +7,17 @@ const Container = styled.div`
       }
       .body {
         margin: 1rem;
-        width: 80vw;
+        width: 85vw;
         display: flex;
         box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
       }
       img {
-        width: 100%
+        width: 100%;
+        margin-right: 4rem;
       }
       .favorite-content {
         width: 50rem;
-        padding: 0.5rem;
+        padding: 0.3rem;
       }
       button {
         border: none;
