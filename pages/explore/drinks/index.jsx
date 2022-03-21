@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { fetchData } from '../../../helpers/services/api';
 import Header from '../../../components/Header/Header';
 import Footer from '../../../components/Footer/Footer';
@@ -70,11 +69,5 @@ function ExploreDrinks() {
     </Colors>
   );
 }
-
-ExploreFoods.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-};
 
 export default ExploreDrinks;
