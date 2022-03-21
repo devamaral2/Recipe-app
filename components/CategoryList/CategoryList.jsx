@@ -3,15 +3,17 @@ import { useRouter } from 'next/router';
 import AppContext from '../../context/AppContext';
 
 function CategoryList({ category, filter, id }) {
-  const { setMeals } = useContext(AppContext);
+  const { setMeals, setDrinks } = useContext(AppContext);
   const router = useRouter();
+  const route = filter === 'foods' ? 'foods' : 'drinks';
 
   function changePage () {
-    setMeals([])
+    setMeals([]);
+    setDrinks([]);
     if (category === id) {
-      return router.push('/foods/All')
+      return router.push(`/${route}/All`)
     }
-    router.push(`/foods/${category}`)
+    router.push(`/${route}/${category}`)
   }
 
   return (

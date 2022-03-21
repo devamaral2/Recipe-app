@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import * as g from '../../helpers/consts'
 import { fetchData, fetchCategory, fetchItensByCategory } from '../../helpers/services/api';
 import RecipeCard from '../../components/RecipeCard/RecipeCard';
@@ -14,6 +14,10 @@ function Drinks({ initialDrinks, categories, id }) {
   const { theme, drinks } = useContext(AppContext);
   const cardsContent = drinks.length === 0 ? initialDrinks : drinks
   const router = useRouter();
+  useEffect(() => {
+    console.log(categories)
+  },[])
+
   return (
     <Colors theme= { theme } >
       <div className='body'>
@@ -31,7 +35,7 @@ function Drinks({ initialDrinks, categories, id }) {
               return (
                 <CategoryList
                   key={index}
-                  category={category.strCategory}
+                  category={category}
                   filter={g.FILTER_DRINKS}
                   id={id}
                 />
@@ -105,13 +109,13 @@ function Drinks({ initialDrinks, categories, id }) {
 
 
 export async function getStaticProps({ params }) {
-  const categories = await fetchCategory('drinks');
+  const categories = ['Ordinary Drink', 'Cocktail', 'Shake', 'Others', 'Cocoa', 'All']
   if (params.id === 'All') {
   const allDrinks = await fetchData('drinks', 'name', '');
   return {
     props: {
       initialDrinks: allDrinks.drinks,
-      categories: categories.drinks,
+      categories: categories,
       id: params.id
     }
   }
@@ -120,19 +124,20 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       initialDrinks: allDrinks.drinks,
-      categories: categories.drinks,
+      categories: categories,
       id: params.id
     }
   }
 }
 export async function getStaticPaths() {
-  const categories = await fetchCategory('drinks');
-    const sliced = categories.drinks.slice(0,5)
-    const allPaths = sliced.map((category) => {
-        return {
-          params: {id: category.strCategory}
-        }
-    })
+  const categories = ['Ordinary Drink', 'Cocktail', 'Shake', 'Others', 'Cocoa', 'All']
+  const allPaths = categories.map((category) => {
+     return{ 
+      params: {
+        id: category,
+      }
+    }
+  })
 
   return {
     paths: [ ...allPaths,

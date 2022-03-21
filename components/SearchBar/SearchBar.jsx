@@ -1,5 +1,6 @@
+import { useRouter } from 'next/router';
 import React, { useState, useContext, useEffect } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import AppContext from '../../context/AppContext';
 import { fetchData } from '../../helpers/services/api';
 import Container from './Styled';
@@ -11,7 +12,12 @@ const SearchBar = ({ currentPage }) => {
   const [redirect, setRedirect] = useState(false);
   const [searchValue, setSearchValue] = useState('');
   const { setMeals, setDrinks, viewSearchBar } = useContext(AppContext);
-
+  const router = useRouter();
+  const type = currentPage === 'foods' ? 'food' : 'drink';
+  useEffect (() => {
+    id !== '' && router.push(`/${type}/${id}`)
+  },[id])
+  
   useEffect(() => {
     if (searchValue.length > 1 && filter === 'firstLetter') {
       global.alert('Your search must have only 1 (one) character');
@@ -36,8 +42,8 @@ const SearchBar = ({ currentPage }) => {
           setDrinks(data.drinks);
         }
         if (data[key].length === 1) {
-          setRedirect(true);
           setId(Object.values(data[key][0])[0]); // pega o primeiro valor do objeto data
+          // setRedirect(true);
         }
       }
     } catch (error) {
@@ -48,7 +54,7 @@ const SearchBar = ({ currentPage }) => {
   return (
     viewSearchBar && (
       <Container>
-        { redirect && <Redirect to={ `/${currentPage}/${id}` } /> }
+        {/* { redirect && <Redirect to={ `/${currentPage}/${id}` } /> } */}
         <input
           onChange={ (e) => setSearchValue(e.target.value) }
           type="text"

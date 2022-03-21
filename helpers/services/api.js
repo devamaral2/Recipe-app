@@ -19,7 +19,8 @@ export const fetchCategory = async (type) => {
 };
 
 export const fetchItensByCategory = async (filter, category) => {
-  const response = await fetch(`${CATEGORY_SEARCH_ENDPOINT[filter]}${category}`);
+  const type = category === "Others" ? "Other/Unknown" : category;
+  const response = await fetch(`${CATEGORY_SEARCH_ENDPOINT[filter]}${type}`);
   const data = await response.json();
   return data;
 };
