@@ -53,9 +53,11 @@ const Container = styled.div`
   .explore-foods-btn, .explore-foods-ops-btn {
     background-color: #926c15;
   }
-  .explore-drinks-btn {
+  .explore-drinks-btn, .explore-drinks-ops-btn {
     background-color: #893302;
   }
+
+
   
 
   /* span {
