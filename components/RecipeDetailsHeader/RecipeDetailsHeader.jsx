@@ -44,7 +44,7 @@ const RecipeDetailsHeader = ({ type, url, recipe }) => {
           )
         }
 
-      <div className="options">
+      <div className="options body">
         <button
           onClick={ copyToClipboard }
         >

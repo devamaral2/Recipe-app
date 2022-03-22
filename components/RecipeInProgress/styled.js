@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 const Container = styled.main`
   font-family: Arial, Helvetica, sans-serif;
-  /* min-height: 100vh; */
   padding-bottom: 3rem;
 * {
     margin: 0;

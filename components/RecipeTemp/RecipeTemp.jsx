@@ -38,7 +38,7 @@ function RecipeTemp({ recipe, handleCheckbox, doneSteps }) {
   };
 
   return (
-    <div>
+    <div className='body'>
       <ul>
         {ingredients.map(({ number, text }, index) => (
           <li className="ingredients" key={ index } >
