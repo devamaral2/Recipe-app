@@ -5,9 +5,10 @@ import RecipeTemp from '../RecipeTemp/RecipeTemp'
 import RecipeDetailsHeader from '../RecipeDetailsHeader/RecipeDetailsHeader';
 import { useRouter } from 'next/router';
 import AppContext from '../../context/AppContext';
+import Colors from '../../styled/colorsStyle/Colors'
 
 function RecipeInProgress() {
-  // const { recipe } = useContext(AppContext);
+  const { theme } = useContext(AppContext);
   const router = useRouter();
   const id = router.query.id;
   const pathname = router.pathname;
@@ -75,20 +76,22 @@ function RecipeInProgress() {
   };
 
   return (
+    <Colors theme={theme}>
       <div className="body">
-    <Container>
-        <RecipeDetailsHeader
-          type={type}
-          url={url}
-          recipe={recipe}
-        />
-        <RecipeTemp
-          recipe={recipe}
-          handleCheckbox={handleCheck}
-          doneSteps={doneSteps}
-        />
-    </Container>
+        <Container>
+          <RecipeDetailsHeader
+            type={type}
+            url={url}
+            recipe={recipe}
+          />
+          <RecipeTemp
+            recipe={recipe}
+            handleCheckbox={handleCheck}
+            doneSteps={doneSteps}
+          />
+        </Container>
       </div>
+    </Colors>
   );
 }
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropType from 'prop-types';
-import { useHistory } from 'react-router-dom';
 import { INGREDIENTS_QUANTITY } from '../../helpers/consts/index';
 import { useRouter } from 'next/router';
+import { recipeInProgress } from '../../helpers/localStorage';
 // import RecipeDetailsHeader from
 // '../RecipeDetailsHeader/RecipeDetailsHeader';
 
@@ -11,10 +11,11 @@ function RecipeTemp({ recipe, handleCheckbox, doneSteps }) {
   // const [
   //   disableBtn,
   //   setDisableBtn] = useState(true);
-  const router = useRouter();
   const {
     strInstructions,
   } = recipe;
+  const router = useRouter();
+  const type = router.pathname.includes('food') ? 'foods' : 'drinks'
 
   useEffect(() => {
     if (Object.keys(recipe).length > 0) {
@@ -34,6 +35,7 @@ function RecipeTemp({ recipe, handleCheckbox, doneSteps }) {
 
   const handleClick = (event) => {
     event.preventDefault();
+    recipeInProgress(recipe);
     router.push('/profile/done-recipes');
   };
 
@@ -67,6 +69,9 @@ function RecipeTemp({ recipe, handleCheckbox, doneSteps }) {
       <style jsx>{`
         button {
           border: none
+        }
+        .input {
+          color: red
         }
       `}</style>
     </div>

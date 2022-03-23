@@ -5,7 +5,9 @@ function InProgress() {
 const { theme } = useContext
   return (
     <Colors theme={ theme }>
+      <div className="body">
       <RecipeInProgress />
+      </div>
     </Colors>
   )
 
